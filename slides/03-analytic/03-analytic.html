@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reproducible Research: Why and How</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sam Harper" />
+    <meta name="date" content="2020-10-30" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducible Research: Why and How
+## Part 3: Analytic Solutions
+### Sam Harper
+### <br> </br>
+### 2020-10-30
+
+---
+
+
+
+
+
+
+
+
+
+class: center, middle, inverse
+# .orange[**3. Analytic Solutions**]
+
+
+---
+class: center, middle
+# 3.1 Workflow Management
+
+---
+# Workflow Advice
+.pull-left[
+Resources for advice on:
+- Planning and organization
+- Documentation
+- Writing / debugging syntax
+- Automating your work
+- Variable labeling / naming
+- Cleaning
+- Archiving
+ 
+
+Often specific to software but core ideas are the same.
+]
+
+.pull-right[
+![](long-miguel.png)
+]
+
+.footnote[ Long [(2009)](https://www.stata.com/bookstore/workflow-data-analysis-stata/); Christensen et al. [(2019)](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research)]
+---
+# Planning your work
+.pull-left[
+### Why?
+
+Will save you time.  
+
+Plans should help you stay on track.
+
+Hard, and isn't "fun".
+]
+
+.pull-right[
+### What:
+
+- Goals and publishing plans
+- Scheduling
+- Division of labor
+- Datasets needed
+- Variable names and labels
+- Missing data procedures
+- Analysis 
+- Documentation
+- Backing up / archiving
+]
+
+---
+.left-column[
+### File organization
+Core idea is to separate raw data, analytic data, code, and outputs.
+]
+
+.right-column[
+![](file-org-good-bad.png)
+]
+
+---
+.left-column[
+.footnote[ Example from Long (2009)]
+Can also be embedded in the context of a much larger project structure.
+
+Note that "\Source" and "\Derived" data are never in the same folder.
+]
+
+.right-column[
+![](long-directory.png)
+]
+
+---
+class: center, middle
+# Documentation
+
+---
+.pull-left[
+### What should be documented?
+- Data sources
+
+- Data decisions
+- Statistical analysis
+
+- Software
+
+- Storage
+]
+
+.pull-right[
+### Levels of documentation
+- Research log
+
+- Codebooks
+
+- Dataset documentation
+]
+
+---
+# Research Log
+.pull-left[
+The research log should help with:
+- Keeping the work on track. Ideas, decision about analysis, papers you read that are relevant...document your thinking!
+ 
+- Dealing with interruptions.
+ 
+- Facilitating replication by others (especially by you 6 months later).
+ 
+Ideally this should document what you did, why you did it, and how you did it.
+
+.footnote[ Source: [Library of Congress](https://www.loc.gov/item/today-in-history/march-10/)]
+]
+
+.pull-right[
+### Alexander Graham Bell did it, so can you
+![](bell-mar-10-notebook.jpg)
+]
+
+---
+### Example from a (poor) research log
+Any format is fine (text, Word, markdown). Requires discipline to keep up with, but pays dividends later.
+
+![](harper-research-log-ex.png)
+
+---
+class: center, middle
+
+# Literate Programming
+
+---
+# What is 'literate programming'?
+
+### Programming is key to reproducibility.  
+Working in Excel is not reproducible.
+
+### "Literate" means writing code that is understandable to humans.   
+Computers will get it.  
+
+---
+# Structure and name files intuitively.
+
+Create separate scripts for merging/cleaning and data analysis, with a .blue[*master-script*] for running it all
+
+Give code, data files, and output logical names where possible.
+
+Number scripts sequentially in the order they should be run, e.g.,: 
+- .blue[01_clean_data.R]
+- .blue[02_main_analysis.R]
+- .blue[03_robust_checks.R]
+
+Label output figures with descriptive names, but ones that aren’t likely to change (e.g., .blue[figure_hte.png] is better than .blue[figure_1.png])
+
+---
+### Example of a "master" script (Stata)
+.center[
+![](stata-master.png)
+]
+
+---
+### Writing "robust" scripts
+- Comment extensively
+- Self-contained syntax  
+- Version control
+- Exclude directory information - use relative paths:
+ 
+
+NO: 
+
+```r
+use '/Users/samharper/Dropbox/-today/replication/workshop/project/data-clean.dta'
+```
+ 
+YES:
+
+```r
+use 'data-clean.dta'
+```
+ 
+- Include seeds for random numbers
+- Archive user written programs / .ado files
+- Automate as much as you can to avoid mistakes and repetition.
+
+
+---
+.left-column[
+### Essential parts of a syntax file
+
+This example is for Stata, but the same principles apply to any software.
+]
+.right-column[
+![](stata-syntax.png)
+]
+
+---
+background-image: url(sas-syntax.png)
+background-size: contain
+class: right, top
+
+Same idea for SAS
+---
+### Similar for R, all are adaptable
+
+```r
+# PROJECT
+  # Paper:
+  # Authors:
+
+# R Script
+  # Purpose: 
+  # Created: &lt;date&gt; by &lt;author&gt; 
+  # Updated: &lt;date&gt; 
+  # Inputs: &lt;files required&gt;
+  # Outputs: &lt;tables and figures&gt;
+
+######## PACKAGES ########
+# Check system for packages
+  need &lt;- c("dplyr", "foreign") # list packages needed
+  ...etc...
+
+######## ANALYSIS ########
+fit &lt;- lm(...)
+```
+
+
+---
+class: center, middle
+
+# Version Control
+
+---
+class: middle
+.pull-left[
+Obligatory picture:
+![](final-doc.png)
+]
+--
+.pull-right[
+But not a joke (sigh):
+![](no-joke.png)
+]
+
+---
+## One kind of collaborative workflow
+
+.pull-left[
+### Collaborator 1:
+- cleans data → .blue[`data.do`]
+
+- analysis → `analysis.do`
+
+- generates Excel tables → `results.xls`
+
+- draft manuscript in Word → `manuscript.docx`
+]
+
+.pull-right[
+### Collaborator 2:
+- adds new variables → `data_new.do`
+
+- new analysis → `analysis2.do`
+
+- new Excel tables → `results_final.xls`
+
+- revises draft with new results → `manuscript-v2.docx`
+]
+
+---
+#What is the problem?
+Which draft is the current one?
+
+Which set of tables contain the "right" results?
+.center[
+![](vc-files.png)
+]
+
+---
+## A version control system (VCS) automatically keeps track of changes to files and code.
+.center[
+&lt;img src="vc-image.png" width="600" height="400" /&gt;
+]
+
+---
+## How can version control help?
+
+.pull-left[
+Under VCS the prior collaboration would only have 4 files:
+- cleans data → .blue[ `data` ]
+
+- analysis → `analysis`
+
+- generates results → `results`
+
+- generates manuscript → `manuscript`
+]
+
+.pull-right[
+Notice the lack of file extensions.
+
+This is because all files are based on source code
+
+We just don't usually see it.
+]
+
+---
+## How can version control help?
+With version control you can:
+
+- Collaborate
+- Track each change and **who** made it
+- Easily switch between versions of files (i.e. go backward in time)
+- Compare versions of files
+- Backup
+- Work with the same files on different machines
+- Collaborators can work simultaneously on the same files on different machines
+- Experiment with a new version of code without permanently ruining anything
+
+---
+## Manual solutions (works, but not ideal)
+
+Create dated versions of files (save-as) for each substantive change
+ 
+With each modification, re-run ALL code to make sure nothing is broken—helps if you have a master file to run all scripts!
+ 
+Check-in with coauthors to ensure multiple people aren’t working on the same files at the same time.
+ 
+Keep a simple log to remind yourself of the location/content of major changes.
+
+---
+## Software solutions
+Version control software: helps manage versions and edits to files (e.g., Microsoft Word’s “track changes”, or Google Doc’s “suggestion” feature)—many options.
+
+Git: Open-source, “distributed model” of version control developed by creator of Linux.
+
+GitHub / GitLab: Free, web-based service that hosts Git “repositories” and offers a variety of features for collaboration:
+- Online
+- Desktop apps
+- Command line (technical)
+
+---
+How does Git work?
+![](github-workflow-diagram.png)
+
+---
+### How is that better than Dropbox?
+.left-column[
+Simultaneous editing in Dropbox leads to "conflicted" copies of files.
+
+Only one person can edit the "live" version of the file.
+
+Can "rollback" to earlier version, but that affects everyone.
+
+]
+
+.right-column[
+![](strumpf-conflicted.png)
+]
+
+
+---
+class: center, middle
+# Dynamic Documents
+
+---
+# What are dynamic documents?
+Even with perfect (version controlled) code, you can still run into problems going from your code to paper.  (copy → paste problems)
+
+--
+
+### This is where dynamic documents come in.
+
+A dynamic document includes your data, code, analysis, and output all in one place.
+
+Fully automated so no mistakes from copying and pasting.
+
+Several formats, but most commonly using R Markdown in RStudio or Markdoc in Stata.
+
+---
+## How can dynamic documents help?
+
+Include tables by linking to a file, instead of a static image.
+
+Reference an estimate (e.g. risk ratio) by linking to a value calculated by an analysis file, instead of a static number typed manually.
+
+Automatically update tables and numbers if models and/ or data changes.
+
+Produce entire paper with one or two clicks.
+
+---
+RStudio example (more later)
+![](rmarkdown-example.png)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

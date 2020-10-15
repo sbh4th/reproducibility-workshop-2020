@@ -18,13 +18,12 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+library(here)
 library(DiagrammeR)
 library(xaringan)
 library(leaflet)
 library(ggplot2)
-library(emo)
 library(emojifont)
-library(fontawesome)
 xfun::pkg_load2(c('tikzDevice', 'magick', 'pdftools'))
 ```
 
@@ -72,7 +71,7 @@ class: middle, center
 ---
 # What is preregistration?
 .left-column[
-```{r, echo=F}
+```{r, echo=F, out.height="100%", out.width="100%"}
 knitr::include_graphics("preregistered_large_color.png")
 # ggplot() + geom_fontawesome("fa-pencil-square-o", color='steelblue') + theme_void()
 ```
@@ -124,7 +123,7 @@ Many different disciplinary “registries”
 ]
 
 ---
-.footnote[ Kaplan and Irwin (2015)]
+.footnote[Kaplan and Irwin (2015)]
 
 .left-column[
 In 2000 NHLBI required the registration of primary outcome on ClinicalTrials.gov for all their grant-funded activity.
@@ -222,13 +221,13 @@ Particularly interesting that >50% of findings for 'novel' studies are consisten
 ]
 
 .right-column[
-![](allen-rr-nature.png)
+![](here("slides/images", "allen-rr-nature.png")
 ]
 
 ---
 ## Potentially more useful: .red[Registered Reports]
 
-![](lee-rr.png)
+![](here("slides/images", "lee-rr.png"))
 .footnote[ Lee (2019)]
 
 ---
