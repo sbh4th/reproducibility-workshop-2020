@@ -19,6 +19,7 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 library(here)
+library(tidyverse)
 library(DiagrammeR)
 library(xaringan)
 library(leaflet)
@@ -40,7 +41,7 @@ pdf2png = function(path) {
 
 ```{r xaringan-themer, include=FALSE}
 library(xaringanthemer)
-write_xaringan_theme(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em")
+style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em")
 ```
 
 class: center, middle, inverse
@@ -138,12 +139,35 @@ knitr::include_graphics("kaplan-plos.png")
 ]
 
 ---
+.footnote[redrawn from Kaplan and Irwin [(2015)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132382)]
+
+.left-column[
+In 2000 NHLBI required the registration of primary outcome on ClinicalTrials.gov for all their grant-funded activity.
+]
+
+.right-column[
+```{r, echo=F, message=F}
+d <- read_csv("kaplan-2015-data.csv",
+  col_names=c("Year", "RR", "type"), col_types = "ddf")
+p <- ggplot(d, aes(x=Year, y=RR, colour=type)) + geom_vline(xintercept=2000) +  geom_point(size=5) + geom_curve(aes(x = 2006, y = 1.5, xend = 2005, yend = 1.25), curvature=0.2, arrow = arrow(length = unit(0.03, "npc")), colour="grey60") + annotate("text", label = "Increase in\nnull findings.", x = 2006, y = 1.8, size = 9, colour = "gray60", hjust=0) + geom_curve(aes(x = 1999, y = 2, xend = 1999.9, yend = 2), curvature=0, arrow = arrow(length = unit(0.01, "npc")), color="grey20") + annotate("text", label = "Registration\nrequired", x=1999, y=2, size=5, color="grey20", hjust=1) + scale_y_log10(limits=c(0.1,2)) + ylab("RR (log scale)") + scale_color_manual(name="Finding", values=c("grey60", "#6ca0f5", "#d6463a")) + theme_classic() + theme(plot.title = element_text(size = 18, face = "bold"), plot.subtitle = element_text(size=16)) + theme(axis.text.x = element_text(size = 16, colour = "grey20"), axis.title.y=element_text(size=16, angle=90, colour="grey20"), axis.title.x=element_text(size=20, colour="grey20"), axis.text.y = element_text(size = 16, colour="grey20"), legend.position=c(0.9, 0.25), legend.text = element_text(size=14), legend.title = element_text(size=16), panel.grid.major.y = element_line(linetype="dotted", colour="grey60"), panel.grid.major.x = element_line(colour="white"), panel.grid.minor = element_line(colour="white")) + theme(axis.line.x=element_line(colour="grey60"), axis.line.y=element_line(colour="grey60"), axis.ticks = element_blank())
+ggsave("kaplan-plos-redraw.png", plot=p, width=11, height=7)
+knitr::include_graphics("kaplan-plos-redraw.png")
+```
+]
+
+---
 # Writing up pre-registered studies
 
 ## 1. Include a link to the registration 
 ## 2. Report *all* pre-registered results.
 ## 3. Explain and justify deviations.
 ## 4. Non-registered analyses named "exploratory", etc.
+
+---
+# Why does preregistration matter?
+- evidence synthesis should be on *all* the evidence
+- distorts planning of future studies
+- unethical and wasteful
 
 ---
 class: middle, center
@@ -231,3 +255,8 @@ Particularly interesting that >50% of findings for 'novel' studies are consisten
 .footnote[ Lee (2019)]
 
 ---
+class: middle, center
+# 2.3 Reporting guidelines
+
+---
+# What are reporting standards?

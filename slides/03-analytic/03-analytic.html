@@ -133,7 +133,11 @@ class: center, middle
 
 ---
 # Research Log
-.pull-left[
+.left-column[
+&lt;img src="03-analytic_files/figure-html/unnamed-chunk-2-1.png" width="100%" height="100%" /&gt;
+]
+
+.right-column[
 The research log should help with:
 - Keeping the work on track. Ideas, decision about analysis, papers you read that are relevant...document your thinking!
  
@@ -142,15 +146,15 @@ The research log should help with:
 - Facilitating replication by others (especially by you 6 months later).
  
 Ideally this should document what you did, why you did it, and how you did it.
-
-.footnote[ Source: [Library of Congress](https://www.loc.gov/item/today-in-history/march-10/)]
 ]
 
-.pull-right[
-### Alexander Graham Bell did it, so can you
-![](bell-mar-10-notebook.jpg)
+---
+### Alexander Graham Bell did it, so can you!
+.center[
+&lt;img src="bell-notebook-1876-03-09.png" width="80%" height="80%" /&gt;
 ]
 
+.footnote[ [Image credit](https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell%27s_notebook,_March_9,_1876.PNG)]
 ---
 ### Example from a (poor) research log
 Any format is fine (text, Word, markdown). Requires discipline to keep up with, but pays dividends later.
@@ -166,15 +170,18 @@ class: center, middle
 # What is 'literate programming'?
 
 ### Programming is key to reproducibility.  
-Working in Excel is not reproducible.
+#### Working in Excel is not reproducible.
 
 ### "Literate" means writing code that is understandable to humans.   
-Computers will get it.  
+#### Computers will get it.  
 
 ---
 # Structure and name files intuitively.
+.left-column[
+&lt;img src="03-analytic_files/figure-html/unnamed-chunk-4-1.png" width="100%" height="100%" /&gt;
+]
 
-Create separate scripts for merging/cleaning and data analysis, with a .blue[*master-script*] for running it all
+.right-column[Create separate scripts for merging/cleaning and data analysis, with a .blue[*master-script*] for running it all
 
 Give code, data files, and output logical names where possible.
 
@@ -184,7 +191,7 @@ Number scripts sequentially in the order they should be run, e.g.,:
 - .blue[03_robust_checks.R]
 
 Label output figures with descriptive names, but ones that aren’t likely to change (e.g., .blue[figure_hte.png] is better than .blue[figure_1.png])
-
+]
 ---
 ### Example of a "master" script (Stata)
 .center[

@@ -40,7 +40,7 @@ pdf2png = function(path) {
 
 ```{r xaringan-themer, include=FALSE}
 library(xaringanthemer)
-write_xaringan_theme(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em")
+style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em")
 ```
 
 
@@ -149,7 +149,13 @@ class: center, middle
 
 ---
 # Research Log
-.pull-left[
+.left-column[
+```{r, echo=F, out.height="100%", out.width="100%"}
+ggplot() + geom_fontawesome("fa-edit", color='#f5bc6c') + theme_void()
+```
+]
+
+.right-column[
 The research log should help with:
 - Keeping the work on track. Ideas, decision about analysis, papers you read that are relevant...document your thinking!
  
@@ -158,15 +164,17 @@ The research log should help with:
 - Facilitating replication by others (especially by you 6 months later).
  
 Ideally this should document what you did, why you did it, and how you did it.
-
-.footnote[ Source: [Library of Congress](https://www.loc.gov/item/today-in-history/march-10/)]
 ]
 
-.pull-right[
-### Alexander Graham Bell did it, so can you
-![](bell-mar-10-notebook.jpg)
+---
+### Alexander Graham Bell did it, so can you!
+.center[
+```{r, echo=F, out.height="80%", out.width="80%"}
+knitr::include_graphics("bell-notebook-1876-03-09.png")
+```
 ]
 
+.footnote[ [Image credit](https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell%27s_notebook,_March_9,_1876.PNG)]
 ---
 ### Example from a (poor) research log
 Any format is fine (text, Word, markdown). Requires discipline to keep up with, but pays dividends later.
@@ -182,15 +190,20 @@ class: center, middle
 # What is 'literate programming'?
 
 ### Programming is key to reproducibility.  
-Working in Excel is not reproducible.
+#### Working in Excel is not reproducible.
 
 ### "Literate" means writing code that is understandable to humans.   
-Computers will get it.  
+#### Computers will get it.  
 
 ---
 # Structure and name files intuitively.
+.left-column[
+```{r, echo=F, out.height="100%", out.width="100%"}
+ggplot() + geom_fontawesome("fa-sitemap", color='#f5bc6c') + theme_void()
+```
+]
 
-Create separate scripts for merging/cleaning and data analysis, with a .blue[*master-script*] for running it all
+.right-column[Create separate scripts for merging/cleaning and data analysis, with a .blue[*master-script*] for running it all
 
 Give code, data files, and output logical names where possible.
 
@@ -200,7 +213,7 @@ Number scripts sequentially in the order they should be run, e.g.,:
 - .blue[03_robust_checks.R]
 
 Label output figures with descriptive names, but ones that aren’t likely to change (e.g., .blue[figure_hte.png] is better than .blue[figure_1.png])
-
+]
 ---
 ### Example of a "master" script (Stata)
 .center[

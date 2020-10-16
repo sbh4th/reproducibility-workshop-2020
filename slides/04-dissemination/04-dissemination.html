@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reproducible Research: Why and How</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sam Harper" />
+    <meta name="date" content="2020-10-30" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducible Research: Why and How
+## Part 4: Dissemination Solutions
+### Sam Harper
+### <br> </br>
+### 2020-10-30
+
+---
+
+
+
+
+
+
+
+
+class: center, middle, inverse
+# .orange[**4. Dissemination Solutions**]
+
+---
+class: center, middle
+
+# Replication Files
+
+---
+# Replication files provide the 'recipe' for reproducing your results.
+
+
+.right-column[
+Should be complete but parsimonious. Don't over do it.
+
+Run / reproduce results with minimal effort (1-click).
+
+Be "literate" (human readable).
+
+Protect confidential data.
+
+There is no single, perfect way to organize or prepare files for replication.
+
+Find a workflow that works well for you.
+]
+
+.footnote[ Clark (2017)]
+
+---
+# Step 1: Generate replication files
+.left-column[
+![](04-dissemination_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+.right-column[
+1. Create a new organized empty replication folder within your project directory (e.g., “replication_files/”)
+
+2. Subfolders: Should be same as overall file structure:
+ - .orange[code/] — scripts
+  - .orange[data_clean/] — manipulated data
+  - .orange[data_raw/] — original data
+  - .orange[output/] — generated tables, graphs, etc.
+  - .orange[extra/] — misc. extras (e.g., code book)
+
+3. A “README.txt” file to document contents, sources, software/system versions, other info necessary for replication/comprehension.
+]
+
+.footnote[ Clark (2017)]
+
+---
+# Step 2: Replicate your own results
+
+1. Copy data and code to your new replication directory.
+
+2. After copying all of the relevant files, see if you can replicate the results in your paper.
+
+3. May want to start with the "final" products (i.e., tables and figures from clean data), which should be "easiest" to replicate.
+
+4. Check for errors and make sure all is well.
+
+5. Now copy the original raw data and cleaning scripts and run the entire thing.
+
+6. All good? If not, debug and try again.
+
+.footnote[ Clark (2017)]
+
+---
+# Step 3: Final check
+1. Shut down and restart software package.
+
+2. Replicate again...all good?
+
+3. Or have a friend / colleague try on another computer.
+
+4. Fix any remaining bugs and try again.
+
+5. Now ready to disseminate!
+
+---
+class: center, middle
+
+# Code/Data Sharing
+
+---
+## Rationale for sharing
+.pull-left[
+Online repositories last longer, are indexed.
+
+Concerns:
+
+- Can usually be embargoed, or provide only what is necessary for replication (e.g., unused survey Qs).
+
+- Biggest risk isn’t having your data/ideas stolen, it’s having your research ignored! (King 1995)
+
+- *More* difficult if research products are proprietary.
+]
+
+.pull-right[
+### Many resources to help
+![](marwick-title.png)
+]
+
+---
+background-image: url(marwick-figs.png)
+background-size: contain
+class: center, top
+
+.left[Can be done for any size project 👇 ]
+---
+
+.pull-left[
+## Where to deposit?
+Depends on discipline: find appropriate registry at http://www.re3data.org/, or check out ...
+
+- [Harvard’s Dataverse](http://dataverse.harvard.edu)
+
+- [Open Science Framework](http://osf.io)
+
+- [OpenICPSR](https://www.openicpsr.org/openicpsr/)
+
+- [figshare](https://figshare.com/)
+
+- [Data Dryad](https://datadryad.org/stash)
+
+- Many others
+]
+
+.pull-right[
+![](repos.jpg)
+]
+
+---
+### Open Science Foundation
+.pull-left[
+OSF (http://osf.io) provides a central location to manage project files.
+
+Any type of files can be uploaded (up to 5GB).
+
+Most common file types will render to be viewed on OSF.
+
+OSF also provides a more comprehensive system for planning, documenting, executing, and disseminating your research over the entire life cycle of a project--and beyond.
+]
+
+.pull-right[
+![](osf-add-ons.png)
+]
+
+---
+.left-column[
+### OSF steps
+1. Create a structured workspace.
+2. (Possibly) pre-register study 
+3. Deposit / add study materials.
+4. Add and document analyses.
+5. Share study data, materials, and code.
+]
+
+.right-column[
+![](osf-choc-happy.png)
+]
+
+---
+.pull-left[
+### Manage access/permissions
+![](osf-permissions.png)
+]
+
+--
+
+.pull-right[
+### Automate version control
+![](osf-vcs.png)
+]
+
+---
+### Persistent identifiers for published work
+![](osf-ids.png)
+
+---
+# Spectrum for sharing sensitive material
+![](sturdy-spectrum.png)
+.footnote[ Source: Jennifer Sturdy (https://osf.io/5yq4u/)]
+
+---
+.pull-left[
+## Synthetic data may also be possible
+
+- mimics an original dataset, preserving its statistical properties and relationships between variables
+
+- classification and regression tree approach
+
+- 0% disclosure risk
+
+- `synthpop` R package
+
+- code and materials on [GitHub](https://github.com/dsquintana/synthpop-primer)
+]
+
+.pull-right[
+![](quintana-title.png)
+]
+
+.footnote[ Quintana 2020]
+
+---
+class: center, middle, inverse
+# .orange[**5. Reproducible Example**]
+
+---
+class: middle, center
+# Today's Research Project
+## Does chocolate increase graduate student happiness?
+
+---
+background-image: url(choc-happy-design.png)
+background-size: contain
+
+---
+# Simple worked example
+- Folder structure
+
+- Organizing via OSF
+
+- Cleaning
+
+- Analysis
+  - Descriptives
+  - Tables
+  - Figures
+
+- Write-up
+
+---
+class: left
+### Folder structure
+Separate code from data and manuscript:
+![](choc-folders.png)
+---
+# Manuscript writing
+Usually Word
+- Good for collaborative writing (track changes)
+- Not a reproducible format
+- Numbers / estimates must be typed out
+- Need to update tables and figures by hand
+
+Use markdown instead
+
+Collaborative writing online (Google docs, Authorea, Overleaf, etc.)
+
+---
+class: middle, center
+# Live Demo
+🙏
+
+---
+class: middle, center
+# Final Thoughts
+
+---
+# Working with "friends"
+.center[
+![](nandi-cluster.png)
+]
+1. Ugh.
+2. He's right.
+2. Need to regenerate the model and table results.
+- Do you know where your materials are?
+- Is it 6 months later?
+- Could someone else take over and figure out what you did?
+
+---
+# This seems like a lot of extra work.
+.pull-left[
+## What's in it for me?
+Selfish reasons to work reproducibly:
+- Helps to avoid disaster.
+- Makes it easier to write papers.
+- Can help reviewers
+- Enables continuity of your work.
+- Builds your scholarly reputation.
+]
+
+.pull-right[
+![](research-lifecycle.png)
+]
+
+.footnote[ Markowetz (2015)]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
