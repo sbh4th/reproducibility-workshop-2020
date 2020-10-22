@@ -44,8 +44,20 @@ library(xaringanthemer)
 style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em")
 ```
 
-class: center, middle, inverse
+class: center, top, inverse
 # .orange[**2. Design Solutions**]
+
+--
+.left[
+## .orange[**2.1 Preregistration**]
+## .orange[**2.2 Pre-analysis plans**]
+## .orange[**2.3 Reporting guidelines**]
+]
+---
+# Reminaging the research lifecycle
+![](research-lifecycle-solution.png)
+
+.footnote[ Policy Design & Evaluation Lab (2017)]
 
 ---
 class: middle, center
@@ -161,7 +173,7 @@ knitr::include_graphics("kaplan-plos-redraw.png")
 ## 1. Include a link to the registration 
 ## 2. Report *all* pre-registered results.
 ## 3. Explain and justify deviations.
-## 4. Non-registered analyses named "exploratory", etc.
+## 4. Non-registered analyses appropriately described as "exploratory" or "hypothesis generating".
 
 ---
 # Why does preregistration matter?
@@ -169,6 +181,47 @@ knitr::include_graphics("kaplan-plos-redraw.png")
 - distorts planning of future studies
 - unethical and wasteful
 
+---
+.footnote[ Goldacre [(2019)](https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-019-3173-2)]
+
+.left-column[
+### But is preregistration enough?
+
+- Still many differences between registration and published reports.
+]
+
+.right-column[
+```{r, echo=F, out.width=700}
+knitr::include_graphics("goldacre-compare-title.png")
+```
+]
+
+---
+.footnote[ Goldacre [(2019)](https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-019-3173-2)]
+
+# Academic journals are not helping
+.center[
+```{r, echo=F, out.width=700}
+knitr::include_graphics("goldacre-compare-table.png")
+```
+]
+
+---
+# Preregistration is not a panacea
+
+.right-column[
+### Preregistered $\neq$ correct/sensible/useful
+#### Transparency helps, but cannot fix terrible design or methods.
+
+### Post-hoc analysis can be worthwhile
+#### Probing surprising results or mechanisms generates knowledge.
+
+### May also lead to 'halo' effects
+#### Preregistered research deserves equal opportunity interrogation.
+]
+
+
+.footnote[See Nosek et al. [(2019)](https://doi.org/10.1016/j.tics.2019.07.009) and Szollosi et al. [(2020)](https://doi.org/10.1016/j.tics.2019.11.009)]
 ---
 class: middle, center
 # 2.2 Pre-analysis plans
@@ -185,13 +238,13 @@ knitr::include_graphics("data_large_color.png")
 .right-column[
 - Detailed description of research design and data analysis plans, submitted to a registry before looking at the data.
 
-- Helps to tie your hands for data analysis (address researcher degrees of freedom, etc.)
+- Helps to tie your hands for data analysis (address researcher degrees of freedom, etc.).
 
-- Distinguish between confirmatory and exploratory analysis
+- Distinguish between confirmatory and exploratory analysis.
 
-- Increases the credibility of research
+- Increases the credibility of research.
 
-- Transparent methods make it easier for others to build on your work
+- Transparent methods make it easier for others to build on your work.
 ]
 
 ---
@@ -213,7 +266,7 @@ knitr::include_graphics("data_large_color.png")
 ]
 
 .pull-right[
-- Analytical decisions
+- Analytic decisions
   - models
   - derived variables
   - clustering
@@ -251,7 +304,7 @@ Particularly interesting that >50% of findings for 'novel' studies are consisten
 ---
 ## Potentially more useful: .red[Registered Reports]
 
-![](here("slides/images", "lee-rr.png"))
+![](lee-rr.png)
 .footnote[ Lee (2019)]
 
 ---

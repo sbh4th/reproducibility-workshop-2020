@@ -100,13 +100,63 @@ Hard, and isn't "fun".
 ]
 
 ---
+## File organization
 .left-column[
-### File organization
-Core idea is to separate raw data, analytic data, code, and outputs.
+![](tree-directory.png)
 ]
 
 .right-column[
-![](file-org-good-bad.png)
+### Core idea is to separate raw data, analytic data, code, and outputs.
+
+### Why?
+- Raw data is **never** altered.
+- Separating code from data streamlines re-analysis.
+- 
+]
+
+---
+.pull-left[
+### Look familar?
+![:scale 85%](file-org-bad.png)
+]
+
+--
+
+.pull-right[
+### That's more like it.
+![:scale 85%](file-org-good.png)
+]
+
+---
+```
++-- _config.yml  
++-- _drafts  
+|   +-- begin-with-the-crazy-ideas.textile  
+|   +-- on-simplicity-in-technology.markdown 
+```
+
+---
+.pull-left[
+An example using `{{}}`:
+
+    `r ''````{r tidy=FALSE}
+    if (TRUE) {
+    *{{ message("Very important!") }}
+    }
+    ```
+]
+
+--
+
+.pull-right[
+Stata example
+```{stata, eval=F}
+    sysuse auto, clear
+   ```/s
+        describe
+   ````
+```
+
 ]
 
 ---

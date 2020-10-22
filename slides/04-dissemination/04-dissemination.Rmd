@@ -154,6 +154,10 @@ background-size: contain
 class: center, top
 
 .left[Can be done for any size project `r emo::ji("point_down")` ]
+
+---
+Add example from peer review of replication dataset for 420 paper.
+
 ---
 
 .pull-left[

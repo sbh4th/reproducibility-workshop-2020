@@ -84,13 +84,64 @@ Hard, and isn't "fun".
 ]
 
 ---
+## File organization
 .left-column[
-### File organization
-Core idea is to separate raw data, analytic data, code, and outputs.
+![](tree-directory.png)
 ]
 
 .right-column[
-![](file-org-good-bad.png)
+### Core idea is to separate raw data, analytic data, code, and outputs.
+
+### Why?
+- Raw data is **never** altered.
+- Separating code from data streamlines re-analysis.
+- 
+]
+
+---
+.pull-left[
+### Look familar?
+![:scale 85%](file-org-bad.png)
+]
+
+--
+
+.pull-right[
+### That's more like it.
+![:scale 85%](file-org-good.png)
+]
+
+---
+```
++-- _config.yml  
++-- _drafts  
+|   +-- begin-with-the-crazy-ideas.textile  
+|   +-- on-simplicity-in-technology.markdown 
+```
+
+---
+.pull-left[
+An example using `{{}}`:
+
+    ```{r tidy=FALSE}
+    if (TRUE) {
+    *{{ message("Very important!") }}
+    }
+    ```
+]
+
+--
+
+.pull-right[
+Stata example
+
+```stata
+    sysuse auto, clear
+   ```/s
+        describe
+```
+```
+
 ]
 
 ---
@@ -134,7 +185,7 @@ class: center, middle
 ---
 # Research Log
 .left-column[
-&lt;img src="03-analytic_files/figure-html/unnamed-chunk-2-1.png" width="100%" height="100%" /&gt;
+&lt;img src="03-analytic_files/figure-html/unnamed-chunk-3-1.png" width="100%" height="100%" /&gt;
 ]
 
 .right-column[
@@ -178,7 +229,7 @@ class: center, middle
 ---
 # Structure and name files intuitively.
 .left-column[
-&lt;img src="03-analytic_files/figure-html/unnamed-chunk-4-1.png" width="100%" height="100%" /&gt;
+&lt;img src="03-analytic_files/figure-html/unnamed-chunk-5-1.png" width="100%" height="100%" /&gt;
 ]
 
 .right-column[Create separate scripts for merging/cleaning and data analysis, with a .blue[*master-script*] for running it all
