@@ -511,5 +511,7 @@ Most authors only included estimation code.
 .footnote[ Policy Design & Evaluation Lab (2017)]
 
 ---
-# Summary points
+# Summary points: Why Embrace Reproducible Research?
+1. For Science.
+2. For Your Research.
 

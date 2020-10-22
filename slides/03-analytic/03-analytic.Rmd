@@ -24,6 +24,7 @@ library(xaringan)
 library(leaflet)
 library(ggplot2)
 library(emojifont)
+library(countdown)
 xfun::pkg_load2(c('tikzDevice', 'magick', 'pdftools'))
 ```
 
@@ -44,13 +45,36 @@ style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size 
 ```
 
 
-class: center, middle, inverse
+class: center, top, inverse
 # .orange[**3. Analytic Solutions**]
 
+--
+.left[
+## .orange[**3.1 Workflow Management**]
+## .orange[**3.2 Documentation**]
+## .orange[**3.3 Literate Programming**]
+## .orange[**3.4 Version Control**]
+## .orange[**3.4 Dynamic Documents**]
+]
 
 ---
+class: center, top, inverse
+# .orange[**3. Analytic Solutions**]
+
+--
+.left[
+## .orange[**3.1 Workflow Management**]
+## .gray[3.2 Documentation]
+## .gray[3.3 Literate Programming]
+## .gray[3.4 Version Control]
+## .gray[3.4 Dynamic Documents]
+]
+---
+
 class: center, middle
 # 3.1 Workflow Management
+
+`r countdown(minutes = 2)`
 
 ---
 # Workflow Advice
@@ -128,6 +152,9 @@ Hard, and isn't "fun".
 ]
 
 ---
+# Use projects to keep things organized
+
+---
 ```
 +-- _config.yml  
 +-- _drafts  
@@ -152,9 +179,9 @@ An example using `{{}}`:
 Stata example
 ```{stata, eval=F}
     sysuse auto, clear
-   ```/s
+   ```{/s}
         describe
-   ````
+   ```
 ```
 
 ]
@@ -169,6 +196,18 @@ Note that "\Source" and "\Derived" data are never in the same folder.
 
 .right-column[
 ![](long-directory.png)
+]
+
+---
+class: center, top, inverse
+# .orange[**3. Analytic Solutions**]
+
+.left[
+## .gray[3.1 Workflow Management]
+## .orange[**3.2 Documentation**]
+## .gray[3.3 Literate Programming]
+## .gray[3.4 Version Control]
+## .gray[3.4 Dynamic Documents]
 ]
 
 ---
@@ -227,9 +266,39 @@ knitr::include_graphics("bell-notebook-1876-03-09.png")
 .footnote[ [Image credit](https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell%27s_notebook,_March_9,_1876.PNG)]
 ---
 ### Example from a (poor) research log
-Any format is fine (text, Word, markdown). Requires discipline to keep up with, but pays dividends later.
+Any format is fine (text, Word, markdown). Requires discipline, but pays dividends later.
 
 ![](harper-research-log-ex.png)
+
+---
+## Codebooks
+.pull-left[
+Codebook is crucial, especially if you are collecting your own data.
+
+Should include:
+- Variable name and question number.
+- Survey questions.
+- Skip patterns.
+- Descriptive statistics.
+- Missing values and reasons.
+- Data imputation.
+]
+
+.pull-right[
+.center[Good advice `r emo::ji("point_down")` 
+![:scale 70%](icpsr-guide.png)]
+]
+---
+class: center, top, inverse
+# .orange[**3. Analytic Solutions**]
+
+.left[
+## .gray[3.1 Workflow Management]
+## .gray[3.2 Documentation]
+## .orange[**3.3 Literate Programming**]
+## .gray[3.4 Version Control]
+## .gray[3.4 Dynamic Documents]
+]
 
 ---
 class: center, middle
@@ -266,14 +335,39 @@ Label output figures with descriptive names, but ones that aren’t likely to ch
 ]
 ---
 ### Example of a "master" script (Stata)
+```{stata, eval=F}
+capture log close master
+log using "code/mvc-laws-master", name(master) replace text
+
+//  program:  mvc-laws-master.do
+//  task:     run all analyses
+//  project:  mandatory seat belt laws and traffic deaths
+//  author:   sam harper \ 23feb2017
+
+// Required user-written programs: -tabout, -metan, -estout, -egenmore
+// Can be downloaded by typing "ssc install tabout, replace"  and
+// "ssc install metan, replace", etc. into the Stata command line
+
+
+do "code/mvc-laws-data.do"                   // create analytic dataset
+do "code/mvc-laws-analysis-descriptives.do"  // descriptive table
+do "code/mvc-laws-analysis-models.do"        // model results
+do "code/mvc-laws-analysis-appendix.do"      // appendix tables/figures
+
+log close master
+exit
+```
+
+---
+### Example of a "master" script (Stata)
 .center[
 ![](stata-master.png)
 ]
 
 ---
-### Writing "robust" scripts
+### Writing "robust" code/scripts
 - Comment extensively
-- Self-contained syntax  
+- Use self-contained syntax  
 - Version control
 - Exclude directory information - use relative paths:
  
@@ -311,7 +405,7 @@ class: right, top
 Same idea for SAS
 ---
 ### Similar for R, all are adaptable
-```{r syntax, eval=F}
+```r 
 # PROJECT
   # Paper:
   # Authors:
@@ -331,6 +425,18 @@ Same idea for SAS
 ######## ANALYSIS ########
 fit <- lm(...)
 ```
+
+---
+class: center, top, inverse
+# .orange[**3. Analytic Solutions**]
+
+.left[
+## .gray[3.1 Workflow Management]
+## .gray[3.2 Documentation]
+## .gray[3.3 Literate Programming]
+## .orange[**3.4 Version Control**]
+## .gray[3.4 Dynamic Documents]
+]
 
 
 ---
@@ -377,9 +483,7 @@ But not a joke (sigh):
 
 ---
 #What is the problem?
-Which draft is the current one?
-
-Which set of tables contain the "right" results?
+Which draft is the current one? Which set of tables contain the "right" results?
 .center[
 ![](vc-files.png)
 ]
@@ -397,14 +501,16 @@ knitr::include_graphics("vc-image.png")
 
 .pull-left[
 Under VCS the prior collaboration would only have 4 files:
-- cleans data → .blue[ `data` ]
+- cleans data → .blue[data]
 
-- analysis → `analysis`
+- analysis → .blue[analysis]
 
-- generates results → `results`
+- generates results → .blue[results]
 
-- generates manuscript → `manuscript`
+- generates manuscript → .blue[manuscript]
 ]
+
+--
 
 .pull-right[
 Notice the lack of file extensions.
@@ -447,7 +553,7 @@ Git: Open-source, “distributed model” of version control developed by creato
 GitHub / GitLab: Free, web-based service that hosts Git “repositories” and offers a variety of features for collaboration:
 - Online
 - Desktop apps
-- Command line (technical)
+- Command line (more technical)
 
 ---
 How does Git work?
@@ -468,10 +574,17 @@ Can "rollback" to earlier version, but that affects everyone.
 ![](strumpf-conflicted.png)
 ]
 
-
 ---
-class: center, middle
-# Dynamic Documents
+class: center, top, inverse
+# .orange[**3. Analytic Solutions**]
+
+.left[
+## .gray[3.1 Workflow Management]
+## .gray[3.2 Documentation]
+## .gray[3.3 Literate Programming]
+## .gray[3.4 Version Control]
+## .orange[**3.4 Dynamic Documents**]
+]
 
 ---
 # What are dynamic documents?
