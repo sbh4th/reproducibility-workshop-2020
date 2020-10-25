@@ -41,7 +41,7 @@ pdf2png = function(path) {
 
 ```{r xaringan-themer, include=FALSE}
 library(xaringanthemer)
-style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em")
+style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em", code_inline_color = '#f5bc6c', code_inline_background_color = "#272822")
 ```
 
 
@@ -461,7 +461,7 @@ But not a joke (sigh):
 
 .pull-left[
 ### Collaborator 1:
-- cleans data → .blue[`data.do`]
+- cleans data → `data.do`
 
 - analysis → `analysis.do`
 
@@ -642,4 +642,29 @@ RStudio example (more later)
 .pull-right[
 .center[`r emo::ji("right_arrow")` `paper.pdf`
 ![:scale 90%](arph-pdf.png)]
+]
+
+---
+## Save outputs as objects to insert into papers
+.pull-left[
+R:
+```{r comment='#', eval=F}
+# a boring regression
+lm(dist ~ 1 + speed, data = cars)
+
+# save regression results for later
+{{fit <- lm(dist ~ 1 + speed, data = cars)}}
+```
+Note that `fit` contains our results.]
+
+.pull-right[
+Stata:
+```{stata, eval=F}
+webuse auto, clear
+
+// another boring regression 
+regress price mpg
+{{estimates store m1}}
+```
+Here `m1` contains our model results.
 ]

@@ -330,7 +330,7 @@ But people rate in many places, some of which .red[do] contain personal data.
 
 - 0% disclosure risk
 
-- `synthpop` R package
+- `synthpop` R package `r emo::ji("package")`
 
 - code and materials on [GitHub](https://github.com/dsquintana/synthpop-primer)
 ]

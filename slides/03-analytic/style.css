@@ -30,3 +30,7 @@ h4 {
   opacity: 0.5;
   font-size: 0.5em;
 }
+
+.remark-code-line-highlighted {
+  background-color: #f5bc6c;
+}

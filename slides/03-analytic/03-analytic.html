@@ -59,7 +59,7 @@ class: center, top, inverse
 class: center, middle
 # 3.1 Workflow Management
 
-<div class="countdown" id="timer_5f94d65e" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5f95c566" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -446,7 +446,7 @@ But not a joke (sigh):
 
 .pull-left[
 ### Collaborator 1:
-- cleans data → .blue[`data.do`]
+- cleans data → `data.do`
 
 - analysis → `analysis.do`
 
@@ -625,6 +625,33 @@ RStudio example (more later)
 .pull-right[
 .center[➡️ `paper.pdf`
 ![:scale 90%](arph-pdf.png)]
+]
+
+---
+## Save outputs as objects to insert into papers
+.pull-left[
+R:
+
+```r
+# a boring regression
+lm(dist ~ 1 + speed, data = cars)
+
+# save regression results for later
+*fit &lt;- lm(dist ~ 1 + speed, data = cars)
+```
+Note that `fit` contains our results.]
+
+.pull-right[
+Stata:
+
+```stata
+webuse auto, clear
+
+// another boring regression 
+regress price mpg
+*estimates store m1
+```
+Here `m1` contains our model results.
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
