@@ -27,10 +27,26 @@ class: center, middle, inverse, title-slide
 
 
 
-class: center, middle, inverse
+class: center, top, inverse
 # .orange[**4. Dissemination Solutions**]
 
+--
+
+## .orange[**4.1. Replication Files**]
+## .orange[**4.2 Data Sharing**]
+## .orange[**4.3 Reproducible Example**]
+
 ---
+class: center, top, inverse
+# .orange[**4. Dissemination Solutions**]
+
+
+## .orange[**4.1. Replication Files**]
+## .gray[**4.2 Data Sharing**]
+## .gray[**4.3 Reproducible Example**]
+
+---
+
 class: center, middle
 
 # Replication Files
@@ -38,6 +54,11 @@ class: center, middle
 ---
 # Replication files provide the 'recipe' for reproducing your results.
 
+.footnote[ Clark (2017)]
+
+.left-column[
+&lt;img src="04-dissemination_files/figure-html/unnamed-chunk-2-1.png" width="100%" height="100%" /&gt;
+]
 
 .right-column[
 Should be complete but parsimonious. Don't over do it.
@@ -53,28 +74,26 @@ There is no single, perfect way to organize or prepare files for replication.
 Find a workflow that works well for you.
 ]
 
-.footnote[ Clark (2017)]
-
 ---
 # Step 1: Generate replication files
+.footnote[ Clark (2017)]
+
 .left-column[
-![](04-dissemination_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+![](04-dissemination_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
 ]
 
 .right-column[
 1. Create a new organized empty replication folder within your project directory (e.g., “replication_files/”)
 
 2. Subfolders: Should be same as overall file structure:
- - .orange[code/] — scripts
-  - .orange[data_clean/] — manipulated data
-  - .orange[data_raw/] — original data
-  - .orange[output/] — generated tables, graphs, etc.
-  - .orange[extra/] — misc. extras (e.g., code book)
+ - .blue[code/] — scripts
+  - .blue[data_clean/] — manipulated data
+  - .blue[data_raw/] — original data
+  - .blue[output/] — generated tables, graphs, etc.
+  - .blue[extra/] — misc. extras (e.g., code book)
 
 3. A “README.txt” file to document contents, sources, software/system versions, other info necessary for replication/comprehension.
 ]
-
-.footnote[ Clark (2017)]
 
 ---
 # Step 2: Replicate your own results
@@ -111,6 +130,23 @@ class: center, middle
 # Code/Data Sharing
 
 ---
+# Why share?
+.right-column[
+### Credibility
+#### Others can reproduce or interrogate your findings.
+
+### Social Good
+#### Resource for other questions and new ideas.
+
+### Changing norms
+#### Professional norms are insufficient to change.
+]
+
+---
+# Types of sharing
+
+
+---
 ## Rationale for sharing
 .pull-left[
 Online repositories last longer, are indexed.
@@ -119,7 +155,7 @@ Concerns:
 
 - Can usually be embargoed, or provide only what is necessary for replication (e.g., unused survey Qs).
 
-- Biggest risk isn’t having your data/ideas stolen, it’s having your research ignored! (King 1995)
+- Biggest risk isn't having your data/ideas stolen, it's having your research ignored! (King 1995)
 
 - *More* difficult if research products are proprietary.
 ]
@@ -135,10 +171,29 @@ background-size: contain
 class: center, top
 
 .left[Can be done for any size project 👇 ]
+
+---
+# When to share?
+
+Add example from peer review of replication dataset for 420 paper.
+
+---
+### Biased anecdote for benefits of sharing *with* paper submission
+.pull-left[
+"Thanks for the opportunity to review this interesting paper. It is exciting to see the FARS data used in this way. **It was also exciting that you shared your code and this allowed me to review your work in a way I have not done before.**"
+.right[-Reviewer 1]
+]
+
+.pull-right[
+"Overall verdict: This paper was both exciting and a pleasure to read. Clearly written, well argued, and with a highly commendable open science approach. As a referee, one frequently thinks 'why didn’t they report the results of a model with...' - and in this case **I was able to download the data, assess their code scripts, and run my own specification to see how it changed things**."
+.right[-Reviewer 2]
+]
+
+.footnote[ We probably got lucky, but the [paper](https://osf.io/9yrdq/) was accepted on the first submission.]
 ---
 
 .pull-left[
-## Where to deposit?
+## Where to share?
 Depends on discipline: find appropriate registry at http://www.re3data.org/, or check out ...
 
 - [Harvard’s Dataverse](http://dataverse.harvard.edu)
@@ -151,7 +206,7 @@ Depends on discipline: find appropriate registry at http://www.re3data.org/, or 
 
 - [Data Dryad](https://datadryad.org/stash)
 
-- Many others
+- Many others...
 ]
 
 .pull-right[
@@ -175,18 +230,20 @@ OSF also provides a more comprehensive system for planning, documenting, executi
 ]
 
 ---
-.left-column[
-### OSF steps
-1. Create a structured workspace.
-2. (Possibly) pre-register study 
-3. Deposit / add study materials.
-4. Add and document analyses.
-5. Share study data, materials, and code.
+## OSF workflow
+.pull-left[
+
+### 1. Create a structured workspace.
+### 2. (Possibly) pre-register study 
+### 3. Deposit / add study materials.
+### 4. Add and document analyses.
+### 5. Share study data, materials, and code.
 ]
 
-.right-column[
+.pull-right[
+.center[OSF project landing page
 ![](osf-choc-happy.png)
-]
+]]
 
 ---
 .pull-left[
@@ -202,14 +259,46 @@ OSF also provides a more comprehensive system for planning, documenting, executi
 ]
 
 ---
-### Persistent identifiers for published work
-![](osf-ids.png)
-
+### Persistent, unique .red[identifiers] for published work
+.center[
+![:scale 70%](osf-id-example.png)
+]
 ---
-# Spectrum for sharing sensitive material
+# Not everything can (or should) be shared
+### Spectrum for sharing sensitive material:
 ![](sturdy-spectrum.png)
 .footnote[ Source: Jennifer Sturdy (https://osf.io/5yq4u/)]
 
+---
+# Why we worry (re-identification)
+.footnote[Narayanan (2008)]
+
+.pull-left[
+### Netflix "contest" data:
+- unique "random" ID
+- film rated
+- date
+- ⭐ ⭐ ⭐
+
+But people rate in many places...
+]
+
+.pull-right[
+![](narayanan-netflix.png)
+]
+
+---
+# Concerns about privacy
+.right-column[
+### Trade-offs
+#### Can't pretend there aren't social costs to open data.
+
+### Dangers of re-identification
+#### Wealth of data after social media revolution.
+
+### Limits
+#### Solutions may be too severe to justify utility of sharing.
+]
 ---
 .pull-left[
 ## Synthetic data may also be possible
@@ -245,7 +334,8 @@ background-image: url(choc-happy-design.png)
 background-size: contain
 
 ---
-# Simple worked example
+.left-column[
+### Example
 - Folder structure
 
 - Organizing via OSF
@@ -258,6 +348,12 @@ background-size: contain
   - Figures
 
 - Write-up
+]
+
+.right-column[
+.center[
+![:scale 70%](choc-happy-design.png)
+]]
 
 ---
 class: left
@@ -310,7 +406,7 @@ Selfish reasons to work reproducibly:
 ]
 
 .pull-right[
-![](research-lifecycle.png)
+![:scale 90%](research-lifecycle.png)
 ]
 
 .footnote[ Markowetz (2015)]

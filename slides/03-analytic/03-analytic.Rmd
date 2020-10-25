@@ -556,6 +556,13 @@ GitHub / GitLab: Free, web-based service that hosts Git “repositories” and o
 - Command line (more technical)
 
 ---
+# Advantages of Git
+
+## Provides the entire narrative of your project.
+
+## Allows you to go back in time.
+
+---
 How does Git work?
 ![](github-workflow-diagram.png)
 
@@ -573,6 +580,17 @@ Can "rollback" to earlier version, but that affects everyone.
 .right-column[
 ![](strumpf-conflicted.png)
 ]
+
+---
+## Additional resources for Git
+- The Basic Workflow of Git (an infographic explaining how Git’s version control system works): https://www.git-tower.com/blog/workflow-of-version-control
+- Git + GitHub (information on using Git and GitHub in an R programming context): http://r-pkgs.had.co.nz/git.html
+- GitHub’s Git [cheat sheets](https://services.github.com/resources/cheatsheets/) (reference sheets on the most commonly used Git commands; available in multiple languages)
+- [GitHub Glossary](https://help.github.com/articles/github-glossary/) (a glossary of Git and GitHub terminology)
+- [Pro Git](https://git-scm.com/book/en/v2) (Chacon & Straub, 2014; a complete manual of Git)
+- [tryGit](https://try.github.io) (an interactive Web site for learning the basics of Git)
+
+.footnote[Vuorre & Curley (2018)]
 
 ---
 class: center, top, inverse
@@ -614,3 +632,14 @@ Produce entire paper with one or two clicks.
 ---
 RStudio example (more later)
 ![](rmarkdown-example.png)
+---
+### Example of a whole paper written and submitted with Rmarkdown 
+.pull-left[
+.center[`paper.rmd` `r emo::ji("right_arrow")`
+![:scale 80%](arph-rmd.png)]
+]
+
+.pull-right[
+.center[`r emo::ji("right_arrow")` `paper.pdf`
+![:scale 90%](arph-pdf.png)]
+]
