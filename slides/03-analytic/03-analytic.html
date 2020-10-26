@@ -59,7 +59,7 @@ class: center, top, inverse
 class: center, middle
 # 3.1 Workflow Management
 
-<div class="countdown" id="timer_5f95c566" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5f96d63d" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -652,6 +652,138 @@ regress price mpg
 *estimates store m1
 ```
 Here `m1` contains our model results.
+]
+
+---
+# Main elements of a dynamic document
+.right-column[
+### Header information
+#### Document metadata (author, title, date, formatting options).
+
+### Document text
+#### Write using markdown language (incl. equations, refs)
+
+### Code: both 'inline' and as 'chunks'
+#### Performs data maniupation, analysis, tables, figures.
+]
+
+---
+## Header
+.pull-left[
+Rmarkdown:
+```yaml
+---
+title: "My Reproducible Paper"
+author: Sam Harper
+date: 2020-10-30
+{{output: pdf}}
+bibliography: myrefs.bib
+csl: vancouver.csl
+---
+```
+Other output formats available (e.g., .html or .docx output), many other formatting options.]
+
+--
+
+.pull-right[
+Same structure for Stata Markdown:
+```yaml
+---
+title: "My Reproducible Paper"
+author: Sam Harper
+date: 2020-10-30
+abstract: |
+  I give a brief summary here.
+keywords: |
+  markdown, reproducible research.
+bibliography: myrefs.bib
+---
+```
+Document format specified in another step.
+]
+
+---
+## Document text
+.pull-left[
+Rmarkdown:
+```yaml
+---
+header: 
+---
+```
+
+Text written using markdown language:
+```md
+# Introduction
+This is why this paper is necessary, and here 
+are the gaps it will fill.
+
+# Methods
+## Data
+We used some cool data.
+```
+]
+
+--
+
+.pull-right[
+Same structure for Stata Markdown:
+```yaml
+---
+header:
+---
+```
+Can add references or equations as well:
+
+```md
+## Statistical analysis
+We ran a linear regression [@Galton:1875]:
+
+$$
+y_{it}=\beta_{0} + \beta_{1}*X 
+$$
+
+where $ \beta_{1} $ is what matters.
+```
+]
+
+---
+## Adding inline or 'chunks' of code
+.pull-left[
+Rmarkdown:
+```yaml
+---
+header: 
+---
+```
+Document text including code 'chunk', set apart by 3 backticks:
+
+```yaml
+```r{eval=FALSE}
+fit1 &lt;- lm(y ~ x, data=d)
+``````
+Inline code: single backtick  `` `r
+1+1` ``.
+
+]
+
+--
+
+.pull-right[
+Structure for Stata Markdown:
+```yaml
+---
+header:
+---
+```
+Same idea for code 'chunks':
+
+```yaml
+```s
+// Write stata code inside chunks
+sum mpg
+``````
+
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
