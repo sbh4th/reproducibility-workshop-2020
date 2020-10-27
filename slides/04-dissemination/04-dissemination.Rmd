@@ -3,7 +3,7 @@ title: "Reproducible Research: Why and How"
 subtitle: "Part 4: Dissemination Solutions"  
 author: "Sam Harper"
 institute: " <br> </br>"
-date: 2020-10-30
+date: "SER Pre-Conference Workshop <br> 2020-10-30 </br>"
 output:
   xaringan::moon_reader:
     lib_dir: libs

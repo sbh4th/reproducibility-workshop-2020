@@ -244,8 +244,11 @@ class: center, top, inverse
 
 ---
 class: center, middle
-# Documentation
 
+# "It is always faster to document it today than tomorrow."
+.right[
+# *-J Scott Long*
+]
 ---
 .pull-left[
 ### What should be documented?
@@ -329,26 +332,31 @@ Should include:
 ### Codebooks can also be automated (using R `r emo::ji("package")` `codebook`)
 .left[
 `codebook_data <- rio::import("stata.dta")`  
-`codebook(codebook_data)`
+`codebook(codebook_data)` `r emo::ji("point_down")`
 ]
 .center[
 ![](codebook-r.png)
 ]
 ---
 # Dataset documentation
-
-## Why?
+.pull-left[
+### Why?
 #### Provides key details about who, what, where, and which processes led to the created datasets.
 
+### How?
+#### Ideally, using a reproducible format that can be updated regularly.
+]
 
-- How?
+.pull-right[
+![](costello-survey.png)
+]
 
 ---
-# One way
+# One simple way: use a registry
 .left-column[
 Create a directory containing meta-data on each dataset created for the project.
 
-Links directly to source files that create data.
+Links directly to time-stamped source files that create data.
 ]
 
 .right-column[
@@ -380,18 +388,52 @@ class: center, top, inverse
 ]
 
 ---
-class: center, middle
+# Core ideas for coding practices
 
-# Literate Programming
+.right-column[
+### Don't modify data by hand
+#### This means you, Excel. And you, copy/paste.
+
+### Don't point-and-click
+#### Typing commands or graphical interfaces are not reproducible.
+
+### Write code scripts
+#### Coding creates reproducible workflow
+]
 
 ---
-# What is 'literate programming'?
+class:
 
-### Programming is key to reproducibility.  
-#### Working in Excel is not reproducible.
+.left[# "Literate" programming is:]
 
-### "Literate" means writing code that is understandable to humans.   
-#### Computers will get it.  
+--
+
+.right-column[
+# Code that humans understand.  
+
+# Computers will get it.  
+]
+
+---
+Comment extensively!
+
+Short lines with no wrapping
+
+Give functions, objects, and variables intuitive names like edu_percent rather than v76
+
+Label variables and values in Stata
+
+Avoid abbreviations for commands (Stata)
+
+Alignment and indentation:
+
+keep   sid class_id teacher grade1 ///
+       grade2 grade3 pass
+keep sid class_id teacher grade1 ///
+grade2 grade3 pass
+Easier to read:
+
+Harder to read:
 
 ---
 # Structure and name files intuitively.
@@ -412,6 +454,21 @@ Number scripts sequentially in the order they should be run, e.g.,:
 
 Label output figures with descriptive names, but ones that aren’t likely to change (e.g., .blue[figure_hte.png] is better than .blue[figure_1.png])
 ]
+
+---
+# "One script to rule them all"
+
+.left-column[
+![](frodo-ring.jpg)
+]
+
+.right-column[
+### Many papers contain multiple scripts.
+### Dependencies create problems.
+### Create a .blue[master-script] to run everything.
+### Facilitates '1-click' reproduction.
+]
+
 ---
 ### Example of a "master" script (Stata)
 ```{stata, eval=F}
@@ -571,9 +628,15 @@ But not a joke (sigh):
 
 - new analysis → `analysis2.do`
 
-- new Excel tables → `results_final.xls`
+- new tables → `results_final.xls`
 
 - revises draft with new results → `manuscript-v2.docx`
+]
+
+--
+
+.center[
+## This can work! But it can also create problems.
 ]
 
 ---
@@ -631,16 +694,24 @@ With version control you can:
 ---
 ## Manual solutions (works, but not ideal)
 
+.left-column[
+
+]
+
+.right-column[
 Create dated versions of files (save-as) for each substantive change
  
 With each modification, re-run ALL code to make sure nothing is broken—helps if you have a master file to run all scripts!
  
-Check-in with coauthors to ensure multiple people aren’t working on the same files at the same time.
+Check-in with coauthors to ensure multiple people aren't working on the same files at the same time.
  
 Keep a simple log to remind yourself of the location/content of major changes.
+]
 
 ---
 ## Software solutions
+
+.right-column[
 Version control software: helps manage versions and edits to files (e.g., Microsoft Word’s “track changes”, or Google Doc’s “suggestion” feature)—many options.
 
 Git: Open-source, “distributed model” of version control developed by creator of Linux.
@@ -649,6 +720,7 @@ GitHub / GitLab: Free, web-based service that hosts Git “repositories” and o
 - Online
 - Desktop apps
 - Command line (more technical)
+]
 
 ---
 # Advantages of Git
