@@ -41,7 +41,7 @@ pdf2png = function(path) {
 
 ```{r xaringan-themer, include=FALSE}
 library(xaringanthemer)
-style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em", code_inline_color = '#f5bc6c', code_inline_background_color = "#272822")
+style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em", code_inline_color = '#fa9302', code_inline_background_color = "#f0f0f0")
 ```
 
 
@@ -61,7 +61,6 @@ class: center, top, inverse
 class: center, top, inverse
 # .orange[**3. Analytic Solutions**]
 
---
 .left[
 ## .orange[**3.1 Workflow Management**]
 ## .gray[3.2 Documentation]
@@ -288,6 +287,20 @@ Should include:
 .center[Good advice `r emo::ji("point_down")` 
 ![:scale 70%](icpsr-guide.png)]
 ]
+
+---
+# Codebook example (Excel)
+![](codebook-excel.png)
+
+---
+### Codebooks can also be automated (using R `r emo::ji("package")` `codebook`)
+.left[
+`codebook_data <- rio::import("stata.dta")`  
+`codebook(codebook_data)`
+]
+.center[
+![](codebook-r.png)
+]
 ---
 class: center, top, inverse
 # .orange[**3. Analytic Solutions**]
@@ -359,12 +372,6 @@ exit
 ```
 
 ---
-### Example of a "master" script (Stata)
-.center[
-![](stata-master.png)
-]
-
----
 ### Writing "robust" code/scripts
 - Comment extensively
 - Use self-contained syntax  
@@ -405,6 +412,8 @@ class: right, top
 Same idea for SAS
 ---
 ### Similar for R, all are adaptable
+Consider how you feel when you read someone *else's* code when commenting!
+.pull-left[
 ```r 
 # PROJECT
   # Paper:
@@ -420,11 +429,31 @@ Same idea for SAS
 ######## PACKAGES ########
 # Check system for packages
   need <- c("dplyr", "foreign") # list packages needed
-  ...etc...
 
-######## ANALYSIS ########
-fit <- lm(...)
 ```
+]
+
+--
+
+.pull-right[
+```r
+######## ANALYSIS ########
+# First fit crude model
+fit1 <- lm(...)
+
+# Now add sets of confounders
+fit1 <- lm(...)
+
+# Non-linear model for binary outcome
+fit3 <- glm(...)
+
+######## ROBUSTNESS ########
+# Exposure measured with error (95% Se)
+# Quantitative bias analysis using
+# parameters from Smith et al. (2014)
+fit_corrected <- lm(...)
+```
+]
 
 ---
 class: center, top, inverse
@@ -630,9 +659,6 @@ Automatically update tables and numbers if models and/ or data changes.
 Produce entire paper with one or two clicks.
 
 ---
-RStudio example (more later)
-![](rmarkdown-example.png)
----
 ### Example of a whole paper written and submitted with Rmarkdown 
 .pull-left[
 .center[`paper.rmd` `r emo::ji("right_arrow")`
@@ -667,6 +693,77 @@ regress price mpg
 {{estimates store m1}}
 ```
 Here `m1` contains our model results.
+]
+
+---
+### Can be adapted to other software
+.left-column[
+Key idea:  
+- Results are *static* tables.
+
+- Inserted into compiled manuscript.
+
+- No copy/paste.
+]
+
+.right-column[
+Example using SAS's **O**utput **D**elivery **S**ystem (ODS):
+```sas
+data etoh;
+set analysis.analysis;
+run;
+
+ods select ParameterEstimates;
+*ods csv file = "/home/sam.harper/Output/model.csv";
+proc logistic data=etoh;
+model drunk = free;
+run;
+ods csv close;
+```
+.orange[Model results written to .csv file]
+]
+---
+### Can be adapted to other software
+.left[
+Now write manuscript in Rmarkdown
+```yaml
+## Results
+
+We ran a logistic model:
+
+```{r, eval=F}
+t1 <- read_csv(here("slides/03-analytic", "model.csv"), skip=2,
+  col_names=c("Parameter", "df", "Estimate", "SE", "X2", "pvalue"))
+kable(t1, format = 'latex', digits=2, 
+      caption = "Logistic Estimates", booktabs = T) %>%
+      kable_styling(latex_options = "hold_position")
+
+Results look good!
+``````
+]
+
+---
+### Can be adapted to other software
+.pull-left[
+Write text in Rmarkdown
+```yaml
+## Results
+
+We ran a logistic model:
+
+```{r, eval=F}
+t1 <- read_csv(here("slides/03-analytic", "model.csv"), skip=2,
+  col_names=c("Parameter", "df", "Estimate", "SE", "X2", "pvalue"))
+kable(t1, format = 'latex', digits=2, 
+      caption = "Logistic Estimates", booktabs = T) %>%
+      kable_styling(latex_options = "hold_position")
+
+Results look good!
+``````
+]
+
+.pull-right[
+![](sas-pdf.png)
 ]
 
 ---
