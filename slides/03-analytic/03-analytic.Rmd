@@ -25,6 +25,7 @@ library(leaflet)
 library(ggplot2)
 library(emojifont)
 library(countdown)
+library(kableExtra)
 xfun::pkg_load2(c('tikzDevice', 'magick', 'pdftools'))
 ```
 
@@ -68,12 +69,6 @@ class: center, top, inverse
 ## .gray[3.4 Version Control]
 ## .gray[3.4 Dynamic Documents]
 ]
----
-
-class: center, middle
-# 3.1 Workflow Management
-
-`r countdown(minutes = 2)`
 
 ---
 # Workflow Advice
@@ -96,6 +91,23 @@ Often specific to software but core ideas are the same.
 ]
 
 .footnote[ Long [(2009)](https://www.stata.com/bookstore/workflow-data-analysis-stata/); Christensen et al. [(2019)](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research)]
+---
+# Great online **free** resources for *R*
+.footnote[See the series at [bookdown.org](https://bookdown.org/)]
+
+.pull-left[
+Technical help for:
+- Learning *R*.
+- Developing a reproducible workflow.
+- Tips & tricks.
+- Integration with other software.
+- Dealing with frustration.
+]
+
+.pull-right[
+.center[
+![](rmarkdown-books.png)]
+]
 ---
 # Planning your work
 .pull-left[
@@ -121,6 +133,12 @@ Hard, and isn't "fun".
 - Documentation
 - Backing up / archiving
 ]
+
+---
+Image for entire reproducible workflow.
+
+---
+# Use projects to keep things organized
 
 ---
 ## File organization
@@ -151,7 +169,22 @@ Hard, and isn't "fun".
 ]
 
 ---
-# Use projects to keep things organized
+# Many variations (Project TIER scheme)
+.footnote[(https://projecttier.org)]
+
+.left-column[
+Also consider including a folder or file for 'metadata'.
+
+Helps computers find your research!
+]
+.right-column[
+.center[
+![](tier-folders.png)
+]]
+
+
+---
+Your turn: Create a project
 
 ---
 ```
@@ -300,6 +333,39 @@ Should include:
 ]
 .center[
 ![](codebook-r.png)
+]
+---
+# Dataset documentation
+
+## Why?
+#### Provides key details about who, what, where, and which processes led to the created datasets.
+
+
+- How?
+
+---
+# One way
+.left-column[
+Create a directory containing meta-data on each dataset created for the project.
+
+Links directly to source files that create data.
+]
+
+.right-column[
+.center[
+Dataset registry for <project name>  
+Created by: NAME1  
+Last modified by: NAME2   ]
+```{r dataset, echo=F, results='asis'}
+tabl <- "
+| Dataset        | Filename     | Date  | Source | Comments
+|---------------|-------------|------:|-------:|--------:
+| 1    | wave1.dta | 2020-09-01 | 01-build-w1.do | Fix missing
+| 2     | wave2.dta      |   2020-10-05 | 02-build-w2.do | Ready to merge
+| ... |   ...    | ...   | ...  | ...
+"
+cat(tabl)
+```
 ]
 ---
 class: center, top, inverse
@@ -873,7 +939,8 @@ Document text including code 'chunk', set apart by 3 backticks:
 ```yaml
 ```r{eval=FALSE}
 fit1 <- lm(y ~ x, data=d)
-``````
+```
+```
 Inline code: single backtick  `` `r
 1+1` ``.
 
@@ -898,3 +965,14 @@ sum mpg
 
 ]
 
+---
+class: center, top, inverse
+# .orange[**Break!**]
+```{r, echo=F}
+countdown(minutes = 10, 
+          left = 0, right = 0, bottom = "15%", top = "15%",
+          padding = "50px",
+          margin = "5%",
+          font_size = "7em",
+          color_text= '#f5bc6c')
+```

@@ -25,6 +25,7 @@ library(xaringan)
 library(leaflet)
 library(ggplot2)
 library(emojifont)
+library(countdown)
 xfun::pkg_load2(c('tikzDevice', 'magick', 'pdftools'))
 ```
 
@@ -388,8 +389,109 @@ Big difference from non-registered studies.
 ]
 
 ---
-class: middle, center
-# 2.3 Reporting guidelines
+class: center, top, inverse
+# .orange[**2. Design Solutions**]
+
+.left[
+## .gray[**2.1 Preregistration**]
+## .gray[**2.2 Pre-analysis plans**]
+## .orange[**2.3 Reporting guidelines**]
+]
 
 ---
-# What are reporting standards?
+.footnote[ Glasziou et al. (2014)]
+.pull-left[
+# "Most publications have elements that are missing, poorly reported, or ambiguous"
+]
+
+.pull-right[
+![](glasziou-title.png)
+![](glasziou-table.png)
+]
+
+---
+Reporting guidelines exist for entire research lifecycle
+
+.footnote[See the [EQUATOR Network](https://www.equator-network.org/)]
+
+.pull-left[
+.right[
+### Question and approach
+#### .white[x]
+### Pre-intervention
+#### .white[x]
+### Research report
+#### .white[x]
+### Cost-effectivness
+]]
+
+--
+
+.pull-right[
+.left[
+### Systematic review
+#### `r emo::ji("point_right")` PRISMA/PROSPERO
+### Research protocol/preanalysis
+#### `r emo::ji("point_right")` SPIRIT
+### Trials/Observational studies
+#### `r emo::ji("point_right")` CONSORT/STROBE
+### Benefits and costs of interventions
+#### `r emo::ji("point_right")` CHEERS
+]]
+
+---
+![](equator-network-2020.png)
+
+---
+## (Some) evidence that it might matter.
+.footnote[Hopewell et al. *BMJ* [(2010)](https://www.bmj.com/content/bmj/340/bmj.c723.full.pdf)]
+
+.left-column[
+- Some evidence that item reporting has increased.
+
+- Consistent with revised CONSORT (2001).
+
+- Non-adopting journals report fewer items.
+]
+
+.right-column[
+.center[
+![:scale 80%](hopewell-title.png)
+![:scale 80%](hopewell-bmj-fig2.png)
+]]
+
+---
+# Value of reporting guidelines
+
+.left-column[
+```{r, echo=F, out.height="100%", out.width="100%"}
+ggplot() + geom_fontawesome("fa-check", color='steelblue') + theme_void()
+```
+]
+
+.right-column[
+### Improve transparency of reported research
+#### Benefits funders, producers and consumers of research.
+
+### May help to improve the quality of research.
+#### More evidence needed, unintented consequences possible.
+
+### Better reporting $\neq$ more reliable.
+#### Tranparently reported research can still be biased/bad.
+]
+
+---
+class: center, middle, inverse
+# .orange[**Registration, pre-analysis plans, and reporting guides are design strategies to help mitigate bias from underreported research**]
+
+---
+class: center, top, inverse
+# .orange[**Break!**]
+```{r, echo=F}
+countdown(minutes = 10, 
+          left = 0, right = 0, bottom = "15%", top = "15%",
+          padding = "50px",
+          margin = "5%",
+          font_size = "7em",
+          color_text= '#f5bc6c')
+```
