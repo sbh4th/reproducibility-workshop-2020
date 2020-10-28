@@ -3,7 +3,7 @@ title: "Reproducible Research: Why and How"
 subtitle: "Part 3: Analytic Solutions"  
 author: "Sam Harper"
 institute: " <br> </br>"
-date: 2020-10-30
+date: "SER Pre-Conference Workshop <br> 2020-10-30 </br>"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -139,6 +139,7 @@ Image for entire reproducible workflow.
 
 ---
 # Use projects to keep things organized
+.footnote[Jenny Bryan on Project-oriented [workflows](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)]
 
 ---
 ## File organization
@@ -158,14 +159,14 @@ Image for entire reproducible workflow.
 ---
 .pull-left[
 ### Look familar?
-![:scale 85%](file-org-bad.png)
+![:scale 80%](file-org-bad.png)
 ]
 
 --
 
 .pull-right[
 ### That's more like it.
-![:scale 85%](file-org-good.png)
+![:scale 80%](file-org-good.png)
 ]
 
 ---
@@ -331,8 +332,8 @@ Should include:
 ---
 ### Codebooks can also be automated (using R `r emo::ji("package")` `codebook`)
 .left[
-`codebook_data <- rio::import("stata.dta")`  
-`codebook(codebook_data)` `r emo::ji("point_down")`
+Import dataset: `codebook_data <- rio::import("stata.dta")`  
+Generate codebook: `codebook(codebook_data)` `r emo::ji("point_down")`
 ]
 .center[
 ![](codebook-r.png)
@@ -392,7 +393,7 @@ class: center, top, inverse
 
 .right-column[
 ### Don't modify data by hand
-#### This means you, Excel. And you, copy/paste.
+#### This means no Excel for analysis, and no copy/paste.
 
 ### Don't point-and-click
 #### Typing commands or graphical interfaces are not reproducible.
@@ -415,6 +416,7 @@ class:
 ]
 
 ---
+### More general coding advice
 Comment extensively!
 
 Short lines with no wrapping
@@ -437,14 +439,14 @@ Harder to read:
 
 ---
 # Structure and name files intuitively.
+.footnote[See Jenny Bryan's [talk](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf) on naming things.]
 .left-column[
 ```{r, echo=F, out.height="100%", out.width="100%"}
 ggplot() + geom_fontawesome("fa-sitemap", color='#f5bc6c') + theme_void()
 ```
 ]
 
-.right-column[Create separate scripts for merging/cleaning and data analysis, with a .blue[*master-script*] for running it all
-
+.right-column[
 Give code, data files, and output logical names where possible.
 
 Number scripts sequentially in the order they should be run, e.g.,: 
@@ -463,7 +465,7 @@ Label output figures with descriptive names, but ones that aren’t likely to ch
 ]
 
 .right-column[
-### Many papers contain multiple scripts.
+### Many papers require multiple scripts.
 ### Dependencies create problems.
 ### Create a .blue[master-script] to run everything.
 ### Facilitates '1-click' reproduction.

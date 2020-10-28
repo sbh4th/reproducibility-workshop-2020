@@ -23,6 +23,7 @@ library(xaringan)
 library(leaflet)
 library(ggplot2)
 library(emojifont)
+library(countdown)
 xfun::pkg_load2(c('tikzDevice', 'magick', 'pdftools'))
 ```
 
@@ -42,102 +43,28 @@ library(xaringanthemer)
 style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size = "24px",  text_font_family = "'Lucida Sans'", header_font_google = google_font("Source Sans Pro"), header_font_weight="lighter", title_slide_background_color =  "#ffffff", title_slide_text_color = "#000000", link_color = "#0000ee", footnote_font_size = "0.5em")
 ```
 
-class: center, middle, inverse
-# .orange[**1. Integrity Problems**]
-
-
----
-
-.pull-left[
-![](wansink-bowl.jpeg)
-
-![](wansink-nestle.png)
-]
-
-.pull-right[
-![](wansink-gscholar.png)
-]
-
-
-.footnote[ https://www.foodpolitics.com/2007/11/brian-wansink-at-the-usda/]
-
----
-.pull-left[
-*"I gave her a data set of a self-funded, failed study which had null results... I said, ‘This cost us a lot of time and our own money to collect. There’s got to be something here we can salvage because it’s a cool (rich & unique) data set.’ I had three ideas for potential Plan B, C, & D directions (since Plan A had failed)."*
-]
-
-.pull-right[
-![](wansink-vox.png)
-]
-
----
-.pull-left[
-*"I gave her a data set of a self-funded, failed study which had null results... I said, ‘This cost us a lot of time and our own money to collect. There’s got to be something here we can salvage because it’s a cool (rich & unique) data set.’ I had three ideas for potential Plan B, C, & D directions (since Plan A had failed)."*
-
-Enterprising grad students found:
-- impossible values
-- incorrect ANOVA results
-- dubious p-values
-
-Requests for access to the original data were denied by Wansink.
-]
-
-.pull-right[
-![](wansink-vox.png)
-]
-
----
-# Modern scientific tools have consequences
-.pull-left[
-![](science-gene-errors.png)
-]
-
-.pull-right[
-![](ziemann-abstract.png)
-]
-
-
-.footnote[ Boddy (2016), Ziemann (2016)]
-
----
-# More recently...
-.pull-left[
-![](excel-guardian.png)
-![:scale 65%](spreadsheets-box.png)
-]
-
-.pull-right[
-Are Spreadsheets® right for you? Side effects may include:
-
-![](spreadsheets-side-effects.png)
-]
-
-
-.footnote[ Sources: The Guardian [(2020-10-06)](https://www.theguardian.com/politics/2020/oct/05/how-excel-may-have-caused-loss-of-16000-covid-tests-in-england), [YouTube](https://www.youtube.com/watch?v=aBoKwArgC3A)]
----
-class: center
-# The integrity of science is compromised by non-reproducible research.
+class: center, top, inverse
+# .orange[**1. Scientific Integrity Problems**]
 
 --
 
-## There are tools to help you.
+.left[
+## .orange[**1.1 Mertonian norms**]
+## .orange[**1.2 Significance testing**]
+## .orange[**1.3 Non-replication**]
+## .orange[**1.4 Incentive structure**]
+]
 
 ---
-
-# Plan for today
-## 1. Scientific Integrity Problems
-
-## 2. Design Solutions
-
-## 3. Analytic Solutions
-
-## 4. Dissemination Solutions
-
-## 5. Reproducible Example
-
----
-class: center, middle, inverse
+class: center, top, inverse
 # .orange[**1. Scientific Integrity Problems**]
+
+.left[
+## .orange[**1.1 Mertonian norms**]
+## .gray[**1.2 Significance testing**]
+## .gray[**1.3 Non-replication**]
+## .gray[**1.4 Incentive structure**]
+]
 
 ---
 # Mertonian Norms in Science
@@ -170,6 +97,8 @@ class: center, middle, inverse
 - *Skepticism*: Consider all new evidence, hypotheses, theories, and innovations, even those that challenge or contradict their own work.
 ]
 
+--
+
 .pull-right[
 ### Counternorms
 - *Particularism*: New knowledge from reputation or group.
@@ -178,51 +107,55 @@ class: center, middle, inverse
 
 - *Self-interestedness*: Colleagues are competitors.
 
-- *Dogmatism*: Protecting one's own findings.
+- *Dogmatism*: Protecting one's own findings, resisting alternatives.
 ]
 
 ---
-.footnote[ Christensen et al. (2019)]
+class: center, middle, inverse
+# .orange[Scientists subscribe to norms, but think others exhibit counternorms.]
+
+
+---
+.footnote[ Christensen et al. (2019) surveyed 3247 US researchers funded by NIH]
+### "I'm fine, but .orange[*they*] are biased."
+
 .left-column[
-### Scientists subscribe to norms, but think others exhibit counternorms.
+.right[
+###.white[x]
+### "In theory"
+#### .white[x]
+### "Me"
+####.white[x]
+### .orange["Them"]
+]]
 
-(Surveyed 3247 US researchers funded by NIH)
-]
 .right-column[
-![](christensen-norms.png)
+![:scale 100%](christensen-norms-arrow.png)
 ]
+
 ---
-## Potential sources of bias in published research
+## Potential sources of "bias" in published research
 .pull-left[
-### Usual culprits
-- Uncontrolled confounding
-
-- Selection bias
-
-- Measurement error
-
-- Model misspecification, etc.
+### Usual explanations
+#### Confounding, measurement error, selection bias, model misspecification, etc.
 ]
+
+--
 
 .pull-right[
 ### Problems with integrity
-- Fraud/manipulation/fabrication
-
-- NHST: Publication bias
-
-- NHST: P-hacking
-
-- Conflicts of interest
-
-- Careerism
-
-- Broken peer review
-
-- Lack of transparency
+#### • Fraud/data manipulation/fabrication.
+#### • Poor design / inadequate power.
+#### • NHST: Publication bias.
+#### • NHST: P-hacking.
+#### • Financial ties/ideological commitments.
+#### • Careerism.
+#### • Lack of transparency.
 ]
 
 ---
 class: center
+Affects the entire research lifecycle
 .footnote[ Munafo et al. (2017)]
 ```{r,  echo=F, out.width = 900}
 knitr::include_graphics("munafo-figure.png")
@@ -230,6 +163,7 @@ knitr::include_graphics("munafo-figure.png")
 
 ---
 ### Retractions still rare relative to published papers, but increasing.
+
 .center[
 ```{r, echo=F, out.width=800}
 knitr::include_graphics("steen-2013.png")
@@ -238,19 +172,62 @@ knitr::include_graphics("steen-2013.png")
 .footnote[ Steen et al. 2013]
 
 ---
+class: center, top, inverse
+# .orange[**1. Scientific Integrity Problems**]
+
+.left[
+## .gray[**1.1 Mertonian norms**]
+## .orange[**1.2 Significance testing**]
+## .gray[**1.3 Non-replication**]
+## .gray[**1.4 Incentive structure**]
+]
+---
 .pull-left[
-# A lot of irreproducible or unreliable research stems from Null Hypothesis Significance Testing
+## A lot of irreproducible or unreliable research stems from Null Hypothesis Significance Testing (NHST).
 ]
 
 .pull-right[
 ![](pushing-for-p.png)
 ]
 
-
 .footnote[ https://mobile.twitter.com/wviechtb/status/1228327958810648576/photo/1]
 
 ---
-### How NHST facilitates non-replication
+### Researcher "degrees of freedom" are difficult to control
+.footnote[ Source: Gary King]
+
+.pull-left[
+### How are analyses conducted?
+- collect the data over many months.
+- finish recording and merging.
+- run *one* regression.
+- new regression, different controls.
+- now a different functional form.
+- new regression, different measures.
+- yet another regression on subset.
+- have 100 or 1000 estimates.
+- 1 or maybe 5 results in the paper.
+]
+
+--
+
+.pull-right[
+### What's the problem?
+- Some result is designated as the “correct” one, only *after* looking
+at the estimates.
+
+- Is this a true test of a hypothesis or just confirmation bias?
+
+- This is "p-hacking"
+]
+
+---
+![](truth-vigilantes-soccer-calls2.png)
+
+.footnote[ Source: [fivethirtyeight.com](https://projects.fivethirtyeight.com/p-hacking/)]
+
+---
+## How NHST facilitates non-replication
 .footnote[ Lash (2017)]
 .left-column[
 
@@ -258,8 +235,9 @@ knitr::include_graphics("steen-2013.png")
 
 ]
 .right-column[
-![](lash-aje-2017d.png)
-]
+.center[
+![:scale 90%](lash-aje-2017d.png)
+]]
 
 
 ---
@@ -282,7 +260,7 @@ knitr::include_graphics("aha-ns.jpeg")
 .left-column[
 .footnote[ Chavalarais et al. (2013)]
 ### How do we know there is p-hacking?
-(2) Everything is significant
+(2) Seriously, everything is significant
 ]
 
 .right-column[
@@ -310,7 +288,7 @@ knitr::include_graphics("gotzsche.png")
 
 ---
 .left-column[
-.footnote[ Barnett and Wren [(2019)](https://bmjopen.bmj.com/content/bmjopen/9/11/e032506.full.pdf)]
+.footnote[ data from Barnett and Wren [(2019)](https://bmjopen.bmj.com/content/bmjopen/9/11/e032506.full.pdf)]
 ### Won't 95% confidence intervals help?
 No.
 
@@ -325,57 +303,11 @@ knitr::include_graphics("wren-cis.png")
 ]
 
 ---
-### Researcher "degrees of freedom" are difficult to control
-.footnote[ Source: Gary King]
-
-.pull-left[
-### How are analyses conducted?
-- collect the data over many months.
-- finish recording and merging.
-- run *a* regression.
-- new regression, different controls.
-- new regression, different functional forms.
-- new regression, different measures.
-- yet another regression on subset.
-- have 100 or 1000 estimates.
-- 1 or maybe 5 results in the paper.
-]
-
---
-
-.pull-right[
-### What's the problem?
-- Some result is designated as the “correct” one, only *after* looking
-at the estimates.
-
-- Is this a true test of a hypothesis or just confirmation bias?
-]
-
----
-## Hypothesizing After the Results are Known (HARKing)
-
-.left-column[
-- Pretending what you found was what you were looking for.
-
-- Easy to "find" theory / biological evidence consistent with results.
-]
-
-.right-column[
-![](targets.png)
-]
-.footnote[ *New Yorker*, 2014-12-07]
-
----
-![](truth-vigilantes-soccer-calls2.png)
-
-.footnote[ Source: [fivethirtyeight.com](https://projects.fivethirtyeight.com/p-hacking/)]
-
----
 class: middle, center
 # NHST also leads to missing evidence and publication bias
 
 ---
-.footnote[ Turner et al. (2008)]
+.footnote[ Turner et al. *NEJM* [(2008)](https://www.nejm.org/doi/full/10.1056/nejmsa065779)]
 
 .left-column[
 ###  Missing evidence
@@ -386,9 +318,23 @@ Impacts regulatory decisions.
 
 .right-column[
 .center[
-```{r, echo=F, out.width=600}
-knitr::include_graphics("turner-nejm-fig.png")
-```
+![:scale 60%](turner-nejm-title.png)
+![:scale 50%](turner-nejm-figure.png)
+]]
+
+---
+.footnote[Fanelli *PLoS ONE* (2010), Yong *Nature* [(2012)](https://www.nature.com/news/replication-studies-bad-copy-1.10634)]
+
+.pull-left[
+## .orange[Publication bias affects nearly all disciplines]
+### Statistically significant results are more likely to be published, across virtually all disciplines.
+### May be worse in "softer" sciences.
+### Much of the bias is likely self-imposed.
+]
+
+.pull-right[
+.center[
+![:scale 90%](yong-accentuate.png)
 ]]
 
 ---
@@ -403,10 +349,23 @@ All peer reviewed, required to be deposited in a registry.
 All studies had results.
 ]
 
+--
+
 .right-column[
 .center[
 ![:scale 65%](mervis-franco-fig.png)
 ]]
+
+---
+class: center, top, inverse
+# .orange[**1. Scientific Integrity Problems**]
+
+.left[
+## .gray[**1.1 Mertonian norms**]
+## .gray[**1.2 Significance testing**]
+## .orange[**1.3 Non-replication**]
+## .gray[**1.4 Incentive structure**]
+]
 
 ---
 ## Distinctions between commonly used terms
@@ -423,7 +382,7 @@ Using using independent investigators, methods, data, equipment, and protocols, 
 
 .pull-right[
 ### Reproducibility
-If we start from the *same* data gathered by the scientist we can reproduce the same results, p-values, confidence intervals, tables and figures as those in the original report.
+If we start from the *same* data gathered by the scientist we can reproduce the same results, p-values, confidence intervals, tables and figures as in the original report.
 
 .red[There are fewer reasons for non-reproducibility.]
 
@@ -448,13 +407,28 @@ knitr::include_graphics("camerer-abstract.png")
 .footnote[ Nosek et al. (2017), Camerer et al. (2016)]
 
 ---
-.center[
+.left-column[
+### Effect sizes are much lower in replication studies.
+]
+.right-column[
 ```{r,  echo=F, out.width = 650}
 knitr::include_graphics("nosek-fig.png") 
 ```
 ]
 .footnote[ Nosek et al. (2017)]
 
+---
+## Surely the "top" journals are better, right?
+.footnote[ Camerer et al. [(2018)](https://www.nature.com/articles/s41562-018-0399-z)]
+
+.pull-left[
+"We find a significant effect in the same direction as the original study for 13 (62%) studies, and the effect size of the replications is on average about 50% of the original effect size"
+
+"The relative effect size of true positives is estimated to be 71%, suggesting that both .red[false positives and inflated effect sizes] of true positives contribute to imperfect reproducibility."
+]
+.pull-right[
+![](camerer-nature-fig-a.png)
+]
 
 ---
 ### If we wanted to reproduce, often the materials aren't there
@@ -485,6 +459,30 @@ Most authors only included estimation code.
 .footnote[ Gertler et al. 2018]
 
 ---
+class: center, top, inverse
+# .orange[**1. Scientific Integrity Problems**]
+
+.left[
+## .gray[**1.1 Mertonian norms**]
+## .gray[**1.2 Significance testing**]
+## .gray[**1.3 Non-replication**]
+## .orange[**1.4 Incentive structure**]
+]
+
+---
+## Incentive problems
+.right-column[
+### Reward structure
+#### Papers, grants, media, "novel" and "significant" results.
+### Incentives
+#### Gift authorship, CV padding, salami-slicing
+#### Overstating claims, ignoring "non-significant" results, p-hacking
+#### Hoarding data, non-transparent materials and methods
+]
+
+
+
+---
 # What about peer review?
 .pull-left[
 ### Peer review is:
@@ -511,7 +509,23 @@ Most authors only included estimation code.
 .footnote[ Policy Design & Evaluation Lab (2017)]
 
 ---
-# Summary points: Why Embrace Reproducible Research?
-1. For Science.
-2. For Your Research.
+# Summary points
+## Science is conducted by humans.
+
+
+## Why Embrace Reproducible Research?
+## 1. For Science.
+## 2. For Your Research.
+
+---
+class: center, top, inverse
+# .orange[**Break!**]
+```{r, echo=F}
+countdown(minutes = 10, 
+          left = 0, right = 0, bottom = "15%", top = "15%",
+          padding = "50px",
+          margin = "5%",
+          font_size = "7em",
+          color_text= '#f5bc6c')
+```
 

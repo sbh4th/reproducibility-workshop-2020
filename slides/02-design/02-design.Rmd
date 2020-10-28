@@ -288,6 +288,21 @@ class: middle, center
 # 2.2 Pre-analysis plans
 
 ---
+## Hypothesizing After the Results are Known (HARKing)
+
+.left-column[
+- Pretending what you found was what you were looking for.
+
+- Easy to "find" theory / biological evidence consistent with results.
+]
+
+.right-column[
+![](targets.png)
+]
+.footnote[ *New Yorker*, 2014-12-07]
+
+
+---
 # What is a pre-analysis plan?
 .left-column[
 ```{r, echo=F}
@@ -459,6 +474,9 @@ Reporting guidelines exist for entire research lifecycle
 ![:scale 80%](hopewell-title.png)
 ![:scale 80%](hopewell-bmj-fig2.png)
 ]]
+
+---
+TOP with 
 
 ---
 # Value of reporting guidelines
