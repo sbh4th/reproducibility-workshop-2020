@@ -30,19 +30,20 @@ class: center, top, inverse
 # .orange[**4. Dissemination Solutions**]
 
 --
-
+.left[
 ## .orange[**4.1. Replication Files**]
-## .orange[**4.2 Data Sharing**]
+## .orange[**4.2 Sharing**]
 ## .orange[**4.3 Reproducible Example**]
-
+]
 ---
 class: center, top, inverse
 # .orange[**4. Dissemination Solutions**]
 
-
+.left[
 ## .orange[**4.1. Replication Files**]
-## .gray[**4.2 Data Sharing**]
+## .gray[**4.2 Sharing**]
 ## .gray[**4.3 Reproducible Example**]
+]
 
 ---
 
@@ -60,13 +61,11 @@ class: center, middle
 ]
 
 .right-column[
-Should be complete but parsimonious. Don't over do it.
-
-Run / reproduce results with minimal effort (1-click).
-
-Be "literate" (human readable).
-
-Protect confidential data.
+Should: 
+- be complete but parsimonious. Don't over do it.
+- run / reproduce results with minimal effort (1-click).
+- be "literate" (human readable).
+- protect confidential data.
 
 There is no single, perfect way to organize or prepare files for replication.
 
@@ -91,12 +90,18 @@ Find a workflow that works well for you.
   - .blue[output/] — generated tables, graphs, etc.
   - .blue[extra/] — misc. extras (e.g., code book)
 
-3. A “README.txt” file to document contents, sources, software/system versions, other info necessary for replication/comprehension.
+3. A "README" text/markdown file to document contents, sources, software/system versions, other info necessary for replication/comprehension.
 ]
 
 ---
 # Step 2: Replicate your own results
+.footnote[ Clark (2017)]
 
+.left-column[
+![](04-dissemination_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+.right-column[
 1. Copy data and code to your new replication directory.
 
 2. After copying all of the relevant files, see if you can replicate the results in your paper.
@@ -108,11 +113,16 @@ Find a workflow that works well for you.
 5. Now copy the original raw data and cleaning scripts and run the entire thing.
 
 6. All good? If not, debug and try again.
-
-.footnote[ Clark (2017)]
+]
 
 ---
 # Step 3: Final check
+.footnote[ Clark (2017)]
+.left-column[
+![](04-dissemination_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+]
+
+.right-column[
 1. Shut down and restart software package.
 
 2. Replicate again...all good?
@@ -122,6 +132,7 @@ Find a workflow that works well for you.
 4. Fix any remaining bugs and try again.
 
 5. Now ready to disseminate!
+]
 
 ---
 class: center, middle
@@ -146,7 +157,25 @@ class: center, middle
 
 
 ---
-## Rationale for sharing
+.footnote[Standard Oxford University Press [License](https://academic.oup.com/journals/pages/authors/production_and_publication/online_licensing) (e.g., AJE, IJE)]
+
+.pull-left[
+## What about pre-prints (or post-prints)?
+
+### Most publishers allow posting of a final "accepted" proof.
+
+### Consult the agreement you sign.
+
+### It is your work!
+
+]
+
+.pull-right[
+![:scale 90%](oxford-license.png)
+]
+
+---
+## Rationale for sharing data and code
 .pull-left[
 Online repositories last longer, are indexed.
 
@@ -316,7 +345,7 @@ But people rate in many places, some of which .red[do] contain personal data.
 ![](quintana-title.png)
 ]
 
-.footnote[ Quintana 2020]
+.footnote[ Quintana (2020)]
 
 ---
 class: center, middle, inverse
@@ -408,6 +437,57 @@ Selfish reasons to work reproducibly:
 ]
 
 .footnote[ Markowetz (2015)]
+
+---
+# Take home messages
+
+.left-column[
+.right[
+# 🧰
+.white[x]
+# 🔒
+
+.white[x]
+# 🚀
+]]
+
+.right-column[
+### Reproducible `\(\neq\)` rigid
+#### Don't like *R*? Need to use SAS? There is no single set of tools--more important to find a workflow that works for **you**.
+
+### Security still matters
+#### Some things can't be shared. Providing a rationale for what is/not shared means being transparent.
+
+### 3rd?
+#### Is there anything left to say?
+]
+
+---
+# Other resources for reproducibility in R
+.footnote[Source: [Anna Krystalli](https://annakrystalli.me/talks/r-in-repro-research-dc.html#120)]
+.pull-left[
+Version Control
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+
+RMarkdown
+- [R Markdown: The Definitive guide](https://bookdown.org/yihui/rmarkdown/)
+- [RMarkdown Driven Development (RmdDD)](https://emilyriederer.netlify.com/post/rmarkdown-driven-development/): Blog post by Emily Riederer
+
+R Packages
+- [R packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan
+]
+.pull-right[
+Research Compendia
+- Karthik Ram: [_rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
+
+Docker &amp; Binder
+- Getting started with binder [docs](https://mybinder.readthedocs.io/en/latest/introduction.html)
+- rOpenSci [Docker tutorial](https://ropenscilabs.github.io/r-docker-tutorial/)
+
+Tutorials
+- [Rstudio Essentials](https://resources.rstudio.com/) Webinar series
+- [rrresearch](https://annakrystalli.me/rrresearch/): ACCE DTP course on Research Data &amp; Project Management
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

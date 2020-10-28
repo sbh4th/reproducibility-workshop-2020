@@ -127,6 +127,7 @@ class: center, inverse
 .pull-left[
 ## Today is not about:
 - Mastering software
+- Learning to code
 - Mastering version control
 - Mastering statistical analysis
 ]

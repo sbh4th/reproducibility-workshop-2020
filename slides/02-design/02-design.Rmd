@@ -161,6 +161,12 @@ knitr::include_graphics("preregistered_large_color.png")
 ]
 
 ---
+### Where can you find templates for preregistration?
+.footnote[See the [page](https://osf.io/zab38/wiki/home/) at Open Science Foundation]
+
+![](osf-prereg-wiki.png)
+
+---
 ## Importance of intervention details
 .footnote[Hoffman (2013)]
 .left-column[
@@ -504,7 +510,7 @@ class: center, middle, inverse
 
 ---
 class: center, top, inverse
-# .orange[**Break!**]
+# .orange[**Break!**] `r emo::ji("coffee")`
 ```{r, echo=F}
 countdown(minutes = 10, 
           left = 0, right = 0, bottom = "15%", top = "15%",

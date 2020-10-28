@@ -135,11 +135,36 @@ Hard, and isn't "fun".
 ]
 
 ---
-Image for entire reproducible workflow.
+.footnote[Image credit: [OSF](https://osf.io)]
+### Planning for the entire research pipeline
+![](osf-reproducible-workflow.png)
 
 ---
 # Use projects to keep things organized
-.footnote[Jenny Bryan on Project-oriented [workflows](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)]
+.footnote[Jenny Bryan on Project-oriented [workflows](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/). Also possible with [SAS](https://documentation.sas.com/?docsetId=egug&docsetTarget=n1v9z6rladl7jan1tsq9clpzrzo2.htm&docsetVersion=8.2&locale=en).]
+
+.pull-left[
+RStudio: .blue[File > New Project...]
+![](new-rstudio-proj.png)
+]
+
+.pull-right[
+Stata: .blue[File > New > Project...]
+![](new-stata-proj.png)
+]
+
+---
+# Why Projects?
+By definition, the directory `/User/samharper/project/data` is not reproducible.  
+But `project/data` works anywhere.
+--
+
+.right-column[
+### Self contained and portable
+### Easy to integrate with version control
+### Working directory set at project location when opened
+### Fresh session when project is launched
+]
 
 ---
 ## File organization
@@ -153,7 +178,7 @@ Image for entire reproducible workflow.
 ### Why?
 - Raw data is **never** altered.
 - Separating code from data streamlines re-analysis.
-- 
+- Outputs are transient and should be reproducible from data + scripts.
 ]
 
 ---
@@ -389,19 +414,6 @@ class: center, top, inverse
 ]
 
 ---
-# Core ideas for coding practices
-
-.right-column[
-### Don't modify data by hand
-#### This means no Excel for analysis, and no copy/paste.
-
-### Don't point-and-click
-#### Typing commands or graphical interfaces are not reproducible.
-
-### Write code scripts
-#### Coding creates reproducible workflow
-]
-
 ---
 class:
 
@@ -413,6 +425,20 @@ class:
 # Code that humans understand.  
 
 # Computers will get it.  
+]
+
+---
+# Core ideas for coding practices
+
+.right-column[
+### Don't modify data by hand
+#### This means no Excel for analysis, and no copy/paste.
+
+### Don't point-and-click
+#### Typing commands or graphical interfaces are not reproducible.
+
+### Write code scripts
+#### Coding creates reproducible workflow.
 ]
 
 ---
@@ -450,7 +476,7 @@ ggplot() + geom_fontawesome("fa-sitemap", color='#f5bc6c') + theme_void()
 Give code, data files, and output logical names where possible.
 
 Number scripts sequentially in the order they should be run, e.g.,: 
-- .blue[01_clean_data.R]
+- .blue[01_clean_data.R] (or .blue[.do, .sas, etc.])
 - .blue[02_main_analysis.R]
 - .blue[03_robust_checks.R]
 
@@ -1013,8 +1039,7 @@ Document text including code 'chunk', set apart by 3 backticks:
 ```yaml
 ```r{eval=FALSE}
 fit1 <- lm(y ~ x, data=d)
-```
-```
+``````
 Inline code: single backtick  `` `r
 1+1` ``.
 
@@ -1036,7 +1061,7 @@ Same idea for code 'chunks':
 // Write stata code inside chunks
 sum mpg
 ``````
-
+Inline: single backtick `s r(mean)`.
 ]
 
 ---
