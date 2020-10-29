@@ -101,13 +101,17 @@ Technical help for:
 - Developing a reproducible workflow.
 - Tips & tricks.
 - Integration with other software.
-- Dealing with frustration.
+- Dealing with frustration.*
 ]
-
 .pull-right[
 .center[
 ![](rmarkdown-books.png)]
 ]
+
+--
+
+*Which is inevitable.
+
 ---
 # Planning your work
 .pull-left[
@@ -178,7 +182,7 @@ But `project/data` works anywhere.
 ### Why?
 - Raw data is **never** altered.
 - Separating code from data streamlines re-analysis.
-- Outputs are transient and should be reproducible from data + scripts.
+- Outputs (tables, figures) are transient and should be easily regenerated from data + scripts.
 ]
 
 ---
@@ -208,41 +212,35 @@ Helps computers find your research!
 ![](tier-folders.png)
 ]]
 
-
 ---
-Your turn: Create a project
+class: center, top, inverse
 
----
-```
-+-- _config.yml  
-+-- _drafts  
-|   +-- begin-with-the-crazy-ideas.textile  
-|   +-- on-simplicity-in-technology.markdown 
-```
+# .background[x]
 
----
-.pull-left[
-An example using `{{}}`:
-
-    `r ''````{r tidy=FALSE}
-    if (TRUE) {
-    *{{ message("Very important!") }}
-    }
-    ```
-]
+# .orange[Tip: Don't obsess about rigidly following someone else's workflow.]
 
 --
 
-.pull-right[
-Stata example
-```{stata, eval=F}
-    sysuse auto, clear
-   ```{/s}
-        describe
-   ```
+# .orange[**Important thing is to find a workflow that works for you.**]
+
+
+---
+# Your turn (finally!): Create a project
+- Use RStudio or Stata (or something else) to create a new project
+- Call it 'myproject'
+- Create folders for `data`, `code`, and `output`.
+
+- Now close the program.
+- Browse to where the program file exists and double-click.
+- Where is the current directory located? (Hint: type `getwd()` into the R console or `pwd` in the Stata command line).
+
+```{r, echo=F}
+countdown(minutes = 5)
 ```
 
-]
+--
+- Are you in the right location?
+`r emo::ji("white_check_mark")` if yes, `r emo::ji("stop_sign")` if no
 
 ---
 .left-column[
@@ -414,7 +412,6 @@ class: center, top, inverse
 ]
 
 ---
----
 class:
 
 .left[# "Literate" programming is:]
@@ -447,21 +444,32 @@ Comment extensively!
 
 Short lines with no wrapping
 
-Give functions, objects, and variables intuitive names like edu_percent rather than v76
+Give functions, objects, and variables intuitive names like `edu_percent` rather than `v76`
 
-Label variables and values in Stata
+Label variables and values.
 
-Avoid abbreviations for commands (Stata)
+Avoid abbreviations for commands (Stata).
 
-Alignment and indentation:
+Consider breaking long files into several shorter ones.
 
-keep   sid class_id teacher grade1 ///
-       grade2 grade3 pass
+---
+## Alignment and indentation
+
+.pull-left[
+### Harder to read
+```s
 keep sid class_id teacher grade1 ///
 grade2 grade3 pass
-Easier to read:
+```
+]
 
-Harder to read:
+.pull-right[
+### Easier to read
+```s
+keep   sid class_id teacher grade1 ///
+       grade2 grade3 pass
+```
+]
 
 ---
 # Structure and name files intuitively.
@@ -499,6 +507,7 @@ Label output figures with descriptive names, but ones that aren’t likely to ch
 
 ---
 ### Example of a "master" script (Stata)
+This is the content of `code/mvc-laws-master.do`:
 ```{stata, eval=F}
 capture log close master
 log using "code/mvc-laws-master", name(master) replace text
@@ -521,6 +530,33 @@ do "code/mvc-laws-analysis-appendix.do"      // appendix tables/figures
 log close master
 exit
 ```
+
+---
+Your turn #2
+Let's create a master script.
+
+.pull-left[
+An example using `{{}}`:
+
+    `r ''````{r tidy=FALSE}
+    if (TRUE) {
+    *{{ message("Very important!") }}
+    }
+    ```
+]
+
+--
+
+.pull-right[
+Stata example
+```{stata, eval=F}
+    sysuse auto, clear
+   ```{/s}
+        describe
+   ```
+```
+
+]
 
 ---
 ### Writing "robust" code/scripts
@@ -625,14 +661,19 @@ class: center, middle
 # Version Control
 
 ---
-class: middle
 .pull-left[
-Obligatory picture:
-![](final-doc.png)
+## Obligatory picture for every discussion of version control.
 ]
---
 .pull-right[
-But not a joke (sigh):
+![:scale 90%](final-doc.png)
+]
+
+---
+.left-column[
+## But not a joke `r emo::ji("disappointed")`
+]
+
+.right-column[
 ![](no-joke.png)
 ]
 
@@ -699,15 +740,21 @@ Under VCS the prior collaboration would only have 4 files:
 --
 
 .pull-right[
-Notice the lack of file extensions.
-
-This is because all files are based on source code
+A VCS keeps track of changes to each file.
 
 We just don't usually see it.
+
 ]
 
 ---
 ## How can version control help?
+.left-column[
+```{r, echo=F}
+ggplot() + geom_fontawesome("fa-github", color='steelblue') + theme_void()
+```
+]
+
+.right-column[
 With version control you can:
 
 - Collaborate
@@ -718,6 +765,7 @@ With version control you can:
 - Work with the same files on different machines
 - Collaborators can work simultaneously on the same files on different machines
 - Experiment with a new version of code without permanently ruining anything
+]
 
 ---
 ## Manual solutions (works, but not ideal)
@@ -779,11 +827,18 @@ Can "rollback" to earlier version, but that affects everyone.
 ---
 ## Additional resources for Git
 - The Basic Workflow of Git (an infographic explaining how Git’s version control system works): https://www.git-tower.com/blog/workflow-of-version-control
+
 - Git + GitHub (information on using Git and GitHub in an R programming context): http://r-pkgs.had.co.nz/git.html
-- GitHub’s Git [cheat sheets](https://services.github.com/resources/cheatsheets/) (reference sheets on the most commonly used Git commands; available in multiple languages)
+
+- GitHub’s Git [cheat sheets](https://services.github.com/resources/cheatsheets/) (reference sheets on the most commonly used Git commands)
+
 - [GitHub Glossary](https://help.github.com/articles/github-glossary/) (a glossary of Git and GitHub terminology)
+
 - [Pro Git](https://git-scm.com/book/en/v2) (Chacon & Straub, 2014; a complete manual of Git)
+
 - [tryGit](https://try.github.io) (an interactive Web site for learning the basics of Git)
+
+- Jenny Bryan's [HappyGit](https://happygitwithr.com/)
 
 .footnote[Vuorre & Curley (2018)]
 

@@ -143,18 +143,25 @@ class: center, inverse
 
 --
 
-# What is the plan?
+.center[# What is the plan?]
 
 ---
 
 # Plan for today
-## 1. Scientific Integrity Problems
+## 1. Scientific Integrity Problems (1220h-1250h)
 
-## 2. Design Solutions
+## 2. Design Solutions (1300h-1350h)
 
-## 3. Analytic Solutions
+## 3. Analytic Solutions (1400h-1500h)
 
 ## 4. Dissemination Solutions
 
 ## 5. Reproducible Example
+
+---
+# Code of Conduct
+
+
+
+
 

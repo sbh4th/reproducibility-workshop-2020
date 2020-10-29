@@ -389,6 +389,8 @@ If we start from the *same* data gathered by the scientist we can reproduce the 
 ]
 ---
 ### Large scale efforts to replicate studies are not reassuring
+.footnote[ Nosek et al. (2017), Camerer et al. (2016)]
+
 .pull-left[
 #### In Psychology
 ```{r,  echo=F, out.width = 650}
@@ -403,10 +405,9 @@ knitr::include_graphics("camerer-abstract.png")
 ```
 ]
 
-
-.footnote[ Nosek et al. (2017), Camerer et al. (2016)]
-
 ---
+.footnote[ Nosek et al. (2017)]
+
 .left-column[
 ### Effect sizes are much lower in replication studies.
 ]
@@ -415,7 +416,6 @@ knitr::include_graphics("camerer-abstract.png")
 knitr::include_graphics("nosek-fig.png") 
 ```
 ]
-.footnote[ Nosek et al. (2017)]
 
 ---
 ## Surely the "top" journals are better, right?
@@ -429,6 +429,27 @@ knitr::include_graphics("nosek-fig.png")
 .pull-right[
 ![](camerer-nature-fig-a.png)
 ]
+
+---
+# What about peer review?
+.pull-left[
+### Peer review is:
+- Slow, inefficient, and expensive.
+
+- Reviewers agreement no better than chance.
+
+- Does not detect errors.
+]
+
+.pull-right[
+### Reviewiers are biased against:
+- Less prestigious institutions.
+
+- Against new or original ideas.
+]
+
+.footnote[ Smith (2010), editor at *BMJ* for many years.]
+
 
 ---
 ### If we wanted to reproduce, often the materials aren't there
@@ -481,27 +502,6 @@ class: center, top, inverse
 ]
 
 
-
----
-# What about peer review?
-.pull-left[
-### Peer review is:
-- Slow, inefficient, and expensive.
-
-- Reviewers agreement no better than chance.
-
-- Does not detect errors.
-]
-
-.pull-right[
-### Reviewiers are biased against:
-- Less prestigious institutions.
-
-- Against new or original ideas.
-]
-
-.footnote[ Smith (2010), editor at *BMJ* for many years.]
-
 ---
 ### A reproducible path forward: Reminaging the research lifecycle?
 ![](research-lifecycle-solution.png)
@@ -519,7 +519,7 @@ class: center, top, inverse
 
 ---
 class: center, top, inverse
-# .orange[**Break!**]
+# .orange[**Break!**] `r emo::ji("coffee")`
 ```{r, echo=F}
 countdown(minutes = 10, 
           left = 0, right = 0, bottom = "15%", top = "15%",
