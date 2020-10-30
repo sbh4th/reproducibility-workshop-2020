@@ -578,4 +578,3 @@ countdown(minutes = 10,
           font_size = "7em",
           color_text= '#f5bc6c')
 ```
-

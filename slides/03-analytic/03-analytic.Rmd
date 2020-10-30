@@ -235,7 +235,7 @@ class: center, top, inverse
 - Where is the current directory located? (Hint: type `getwd()` into the R console or `pwd` in the Stata command line).
 
 ```{r, echo=F}
-countdown(minutes = 5)
+countdown(minutes = 4)
 ```
 
 --
@@ -349,13 +349,13 @@ Should include:
 ]
 
 ---
-# Codebook example (Excel)
+## Codebook example (Excel)
 ![](codebook-excel.png)
 
 ---
 ### Codebooks can also be automated (using R `r emo::ji("package")` `codebook`)
 .left[
-Import dataset: `codebook_data <- rio::import("stata.dta")`  
+Import dataset: `codebook_data <- rio::import("fakedata.dta")`  
 Generate codebook: `codebook(codebook_data)` `r emo::ji("point_down")`
 ]
 .center[
@@ -385,7 +385,7 @@ Links directly to time-stamped source files that create data.
 
 .right-column[
 .center[
-Dataset registry for <project name>  
+Dataset registry for `myproject`  
 Created by: NAME1  
 Last modified by: NAME2   ]
 ```{r dataset, echo=F, results='asis'}
@@ -444,9 +444,11 @@ Comment extensively!
 
 Short lines with no wrapping
 
-Give functions, objects, and variables intuitive names like `edu_percent` rather than `v76`
+Give functions, objects, and variables intuitive names:  
+- `edu_percent` `r emo::ji("thumbs_up")`
+- `v76` `r emo::ji("thumbs_down")`
 
-Label variables and values.
+Label variables and values (remember codebook advice).
 
 Avoid abbreviations for commands (Stata).
 
@@ -470,7 +472,7 @@ class: right, top
 Same idea for SAS
 ---
 ### Similar for R, all are adaptable
-Consider how you feel when you read someone *else's* code when commenting!
+When commenting *your* code, consider how you feel when you read someone *else's* code!
 .pull-left[
 ```r 
 # PROJECT
@@ -557,7 +559,7 @@ lm(dist ~ 1 + speed, data = cars)
 # save regression results for later
 {{fit <- lm(dist ~ 1 + speed, data = cars)}}
 ```
-Note that `fit` contains our results. Now write to a table:
+Note that `fit` contains our coefficients and SEs. Now write to a table:
 ```{r comment='#', eval=F}
 library(broom) # need broom pkg
 write.csv( tidy( fit ), "t1.csv")
@@ -681,7 +683,7 @@ exit
 
 3) Repeat, creating another new script for `2-goodbye.R`, but type `"Goodbye world!"` instead of `"Hello world!"`
     
-Now create a master script called `0-master.R`  or `0-master.do`that will run the two other scripts you created. The command to execute another file is `source` in R and is `do` in Stata. 
+Now create a master script called `0-master.R`  or `0-master.do` that will run the two other scripts you created. The command to execute another file is `source` in R and is `do` in Stata. 
 
 4) Run the .blue[master] script. 
 
@@ -689,14 +691,30 @@ Now create a master script called `0-master.R`  or `0-master.do`that will run th
 `r emo::ji("white_check_mark")` if yes, `r emo::ji("stop_sign")` if no
 
 ```{r, echo=F}
-countdown(minutes = 7)
+countdown(minutes = 5)
 ```
 
 ---
+.left-column[
 ## Something like?
-.center[
-![:scale 80%](r-master-result.png)
 ]
+
+.right-column[
+.center[
+![](r-master-result.png)
+]]
+
+---
+class: center, top, inverse
+# .orange[**Break!**] `r emo::ji("coffee")`
+```{r, echo=F}
+countdown(minutes = 10, 
+          left = 0, right = 0, bottom = "15%", top = "15%",
+          padding = "50px",
+          margin = "5%",
+          font_size = "7em",
+          color_text= '#f5bc6c')
+```
 
 ---
 class: center, top, inverse
@@ -849,17 +867,17 @@ GitHub / GitLab: Free, web-based service that hosts Git “repositories” and o
 ]
 
 ---
-# Advantages of Git
-
-## Provides the entire narrative of your project.
-
-## Allows you to go back in time.
-
-## Experiment without breaking things.
-
----
 How does Git work?
 ![](github-workflow-diagram.png)
+
+
+---
+# Advantages of Git
+
+### Provides the entire narrative of your project.
+### Allows you to go back in time.
+### Experiment without breaking things.
+![](git-hello-example.png)
 
 ---
 ### How is that better than Dropbox?
@@ -1176,7 +1194,7 @@ class: center, right
 
 1. Use SAS to fit models, generate results.
 
-2. Export results to static tables.
+2. Export results to files.
 
 3. 'Knit' together with text using Rmarkdown.
 ]

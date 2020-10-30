@@ -34,7 +34,6 @@ class: center, top, inverse
 .left[
 ## .orange[**4.1. Replication Files**]
 ## .orange[**4.2 Sharing**]
-## .orange[**4.3 Reproducible Example**]
 ]
 
 ---
@@ -44,7 +43,6 @@ class: center, top, inverse
 .left[
 ## .orange[**4.1. Replication Files**]
 ## .gray[**4.2 Sharing**]
-## .gray[**4.3 Reproducible Example**]
 ]
 
 ---
@@ -131,13 +129,58 @@ Find a workflow that works well for you.
 ]
 
 ---
+### How replication can help
+.left-column[
+![](materials_large_color.png)
+]
+
+.right-column[
+### Facilitate reproducibility
+#### Anyone can reproduce your tables and figures.
+
+### Detects errors
+#### Coding is hard. We all make mistakes.
+
+### Extends work
+#### Probes reliability of findings, answers new questions.
+]
+
+---
+.footnote[Hatzenbuehler et al. *SSM* (2014). [NY Times](https://www.nytimes.com/2018/10/09/well/live/gay-lesbian-lgbt-health-stigma-laws.html)]
+.left-column[
+Hatzenbuehler et al. *Soc Sci Med* 2014:
+
+Reported 12 year decrease in life expectancy for sexual minorities living in more prejudiced communities.
+]
+.right-column[
+.center[
+![:scale 70%](same-sex-nyt.png)
+]]
+
+---
+.footnote[Source: [Retraction Watch](https://retractionwatch.com/2019/02/26/study-claiming-hate-cuts-12-years-off-gay-lives-retracted/)]
+
+.left-column[
+Replication attempt using same public data "failed".
+
+Re-analysis commissioned by original authors.
+
+Coding errors discovered.
+
+Study retracted.
+]
+.right-column[
+.center[
+![:scale 80%](same-sex-retraction.png)
+]]
+
+---
 class: center, top, inverse
 # .orange[**4. Dissemination Solutions**]
 
 .left[
 ## .gray[**4.1. Replication Files**]
 ## .orange[**4.2 Sharing**]
-## .gray[**4.3 Reproducible Example**]
 ]
 
 ---
@@ -157,8 +200,22 @@ class: center, top, inverse
 ]
 
 ---
-# Types of sharing
+## What to share?
+.pull-left[
+## .orange[Pre publication]
+### Preregistration/pre-analysis plan
+### Codebook / data documentation
+### Code to create / analyze data.
+### Replication files
+### Reports / preprints
 
+]
+
+.pull-right[
+## .orange[Post publication]
+### Peer-reviewed papers / postprints
+### Entire project?
+]
 
 ---
 .footnote[Standard Oxford University Press [License](https://academic.oup.com/journals/pages/authors/production_and_publication/online_licensing) (e.g., AJE, IJE)]
@@ -218,11 +275,22 @@ class: center, top
 .left[Can be done for any size project 👇 ]
 
 ---
-# When to share?
+# When to share data or code?
 
 ## Many options
 
-## 
+### 1. Include everything with submitted paper (public)
+### 2. Include everything with submitted paper (for review)
+### 3. Post-publication (recall TOP guidelines)
+
+--
+# .center[
+.orange[What if someone steals my idea?]
+]
+
+---
+### Replication files may not matter!
+![](dansiger-letter.png)
 
 ---
 ### Biased anecdote for benefits of sharing *with* paper submission
@@ -419,25 +487,21 @@ class: left
 Separate code from data and manuscript:
 ![](choc-folders.png)
 ---
-# Manuscript writing
-Usually Word
-- Good for collaborative writing (track changes)
-- Not a reproducible format
-- Numbers / estimates must be typed out
-- Need to update tables and figures by hand
-
-Use markdown instead
-
-Collaborative writing online (Google docs, Authorea, Overleaf, etc.)
-
----
 class: middle, center
 # Live Demo
-🙏
+# 🙏
 
 ---
-class: middle, center
-# Final Thoughts
+## Follow along
+### Create a copy of the OSF [repository](https://osf.io/3fcxd/) (called 'forking')
+![:scale 70%](osf-fork.png)
+### Clone the GitHub [repository]() (download to your machine)
+![:scale 40%](github-clone.png)
+
+
+---
+class: middle, center, inverse
+# .orange[**Final Thoughts**]
 
 ---
 # Working with "friends"
@@ -450,48 +514,6 @@ class: middle, center
 - Do you know where your materials are?
 - Is it 6 months later?
 - Could someone else take over and figure out what you did?
-
----
-# This seems like a lot of extra work.
-.pull-left[
-## What's in it for me?
-Selfish reasons to work reproducibly:
-- Helps to avoid disaster.
-- Makes it easier to write papers.
-- Can help reviewers
-- Enables continuity of your work.
-- Builds your scholarly reputation.
-]
-
-.pull-right[
-![:scale 90%](research-lifecycle.png)
-]
-
-.footnote[ Markowetz (2015)]
-
----
-# Take home messages
-
-.left-column[
-.right[
-# 🧰
-.white[x]
-# 🔒
-
-.white[x]
-# 🚀
-]]
-
-.right-column[
-### Reproducible `\(\neq\)` rigid
-#### Don't like *R*? Need to use SAS? There is no single set of tools--more important to find a workflow that works for **you**.
-
-### Security still matters
-#### Some things can't be shared. Providing a rationale for what is/not shared means being transparent.
-
-### 3rd?
-#### Is there anything left to say?
-]
 
 ---
 # Other resources for reproducibility in R
@@ -519,6 +541,56 @@ Tutorials
 - [Rstudio Essentials](https://resources.rstudio.com/) Webinar series
 - [rrresearch](https://annakrystalli.me/rrresearch/): ACCE DTP course on Research Data &amp; Project Management
 ]
+
+---
+# This seems like a lot of extra work.
+.pull-left[
+## What's in it for me?
+Selfish reasons to work reproducibly:
+- Helps to avoid disaster.
+- Makes it easier to write papers.
+- Can help reviewers
+- Enables continuity of your work.
+- Builds your scholarly reputation.
+]
+
+.pull-right[
+![:scale 90%](research-lifecycle.png)
+]
+
+.footnote[ Markowetz (2015)]
+
+---
+## Take home messages
+
+.left-column[
+.right[
+# 🧰
+.white[x]
+# 🔒
+
+.white[x]
+# 🚀
+]]
+
+.right-column[
+### Reproducible `\(\neq\)` rigid
+#### Don't like *R*? Need to use SAS? There is no single set of tools--more important to find a workflow that works for **you** and your team.
+
+### Security still matters
+#### Some things can't be shared. Providing a rationale for what is/not shared means being transparent.
+
+### Lead by example
+#### Transparency and openness are positive norms. We need help.
+]
+
+---
+background-image: url(mcgill-university.jpg)
+background-size: contain
+class: center, middle
+#### .white[sam.harper@mcgill.ca]
+#### .white[@sbh4th]
+&lt;img src="mcgill-logo-transparent.png" style="width: 15%" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
