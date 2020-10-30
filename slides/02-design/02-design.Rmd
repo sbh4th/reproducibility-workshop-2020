@@ -165,18 +165,24 @@ knitr::include_graphics("preregistered_large_color.png")
 ![](osf-prereg-wiki.png)
 
 ---
-class: center, middle, inverse
-# What if my results are null?
+# Writing up pre-registered studies
 
---
-
-# Won't it be harder to publish?
+## 1. Include a link to the registration 
+## 2. Report *all* pre-registered results.
+## 3. Explain and justify deviations.
+## 4. Non-registered analyses appropriately described as "exploratory" or "hypothesis generating".
 
 ---
-## Potential solution: .red[Registered Reports]
-.footnote[ Lee (2019)]
+# Why does preregistration matter?
 
-![](lee-rr.png)
+## .orange[Evidence synthesis should be on *all* the evidence.]
+## .orange[Distorts planning of future studies.]
+## .orange[Unethical and wasteful.]
+
+---
+class: center, top, inverse
+# .background[**X**]
+# .orange[**Registration is useful**]
 
 ---
 .footnote[redrawn from Kaplan and Irwin [(2015)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132382)]
@@ -196,19 +202,55 @@ knitr::include_graphics("kaplan-plos-redraw.png")
 ]
 
 ---
-# Writing up pre-registered studies
+class: center, top, inverse
+# What if my results are null?
 
-## 1. Include a link to the registration 
-## 2. Report *all* pre-registered results.
-## 3. Explain and justify deviations.
-## 4. Non-registered analyses appropriately described as "exploratory" or "hypothesis generating".
+# You showed us that they won't get published!
+
+# I have to make rent, you know.
 
 ---
-# Why does preregistration matter?
+## Emphasis on design: .red[Registered Reports]
 
-## .orange[Evidence synthesis should be on *all* the evidence.]
-## .orange[Distorts planning of future studies.]
-## .orange[Unethical and wasteful.]
+![](lee-rr-stage1.png)
+.footnote[ Lee (2019)]
+
+---
+## Emphasis on design: .red[Registered Reports]
+
+![](lee-rr.png)
+.footnote[ Lee (2019)]
+
+---
+.footnote[Allen & Mehler, *PLoS Biology* [(2019)](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000246)]
+
+.left-column[
+### RRs in Psychology
+
+Little difference between 'replication' studies and 'novel' studies.
+
+Big difference from non-registered studies.
+]
+
+
+.right-column[
+.center[
+![:scale 75%](allen-rr-2019.png)
+]]
+
+---
+class: center, top, inverse
+# .background[**X**]
+# .orange[**Registration is useful**]
+# .orange[**but not sufficient**]
+
+---
+.footnote[Zarin *NEJM* (2019)]
+.center[
+A majority of registerd RCTs still not reported.
+![:scale 80%](zarin-nejm-2019-fig.png)
+]
+
 
 ---
 .footnote[ Goldacre [(2019)](https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-019-3173-2)]
@@ -385,30 +427,6 @@ Can you prove when you obtained data access?
 .center[
 ![:scale 100%](harper-pap-abstract.png)
 ]]
-
----
-## Potentially more useful: .red[Registered Reports]
-
-![](lee-rr.png)
-.footnote[ Lee (2019)]
-
----
-.footnote[Allen & Mehler, *PLoS Biology* [(2019)](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000246)]
-
-.left-column[
-### Similar results in Psychology
-
-Little difference between 'replication' studies and 'novel' studies.
-
-Big difference from non-registered studies.
-]
-
-
-.right-column[
-.center[
-![:scale 75%](allen-rr-2019.png)
-]
-]
 
 ---
 class: center, top, inverse
