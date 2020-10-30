@@ -182,8 +182,12 @@ class: center, inverse
 
 .pull-right[
 ## Don't
+- Worry about taking notes (but feel free to do so). You will have access to all of the material for the workshop when we are finished.
 - Be disrespectful or rude.
 ]
+
+--
+# .center[Let's go!]
 
 
 

@@ -111,29 +111,6 @@ class: center, top, inverse
 ]
 
 ---
-class: center, middle, inverse
-# .orange[Scientists subscribe to norms, but think others exhibit counternorms.]
-
-
----
-.footnote[ Christensen et al. (2019) surveyed 3247 US researchers funded by NIH]
-### "I'm fine, but .orange[*they*] are biased."
-
-.left-column[
-.right[
-###.white[x]
-### "In theory"
-#### .white[x]
-### "Me"
-####.white[x]
-### .orange["Them"]
-]]
-
-.right-column[
-![:scale 100%](christensen-norms-arrow.png)
-]
-
----
 ## Potential sources of "bias" in published research
 .pull-left[
 ### Usual explanations
@@ -162,14 +139,54 @@ knitr::include_graphics("munafo-figure.png")
 ```
 
 ---
-### Retractions still rare relative to published papers, but increasing.
+class: center, top, inverse
+# .background[x]
 
-.center[
-```{r, echo=F, out.width=800}
-knitr::include_graphics("steen-2013.png")
-```
+# .orange[**How do we know that science isn't working?**]
+
+--
+
+# .orange[**Ask scientists.**]
+
+---
+.footnote[ Christensen et al. (2019) surveyed 3247 US researchers funded by NIH]
+.left-column[
+.right[
+### Norm support:
+### "In theory"
+#### .white[x]
+### "Me"
+####.white[x]
+### .blue["Others"]
+]]
+
+.right-column[
+![:scale 100%](christensen-norms-arrow.png)
 ]
-.footnote[ Steen et al. 2013]
+
+---
+.footnote[Fanelli *PLoS ONE* (2011)]
+.left-column[
+### Scientists admit to engaging in questionable research practices.
+
+
+]
+.right-column[
+.center[
+![:scale 70%](fanelli-qrp-figure.png)
+]]
+
+---
+.footnote[Baker *Nature* (2018)]
+.left-column[
+## Scentists think there is a "reproducibility" crisis
+
+### or a "slight" crisis?  `r emo::ji("thinking_face")`
+]
+.right-column[
+.center[
+![:scale 70%](baker-crisis.png)
+]]
 
 ---
 class: center, top, inverse
@@ -225,6 +242,29 @@ at the estimates.
 ![](truth-vigilantes-soccer-calls2.png)
 
 .footnote[ Source: [fivethirtyeight.com](https://projects.fivethirtyeight.com/p-hacking/)]
+
+---
+# Let's do some hacking!
+
+## Go to https://projects.fivethirtyeight.com/p-hacking/ and answer this question:
+
+--
+
+.center[
+# .orange[**Will next week's election affect the economy?**]
+]
+
+```{r, echo=F}
+countdown(minutes = 3)
+```
+
+---
+background-image: url(hacking-result.png)
+background-size: contain
+
+---
+background-image: url(hacking-result2.png)
+background-size: contain
 
 ---
 ## How NHST facilitates non-replication
@@ -501,21 +541,31 @@ class: center, top, inverse
 #### Hoarding data, non-transparent materials and methods
 ]
 
+---
+## Incentive problems
+### Remember Brian Wansink?
+### After encouraging his postdoc to "find" specific results, fish for interactions, change the dependent variable, and eliminate outliers, he concluded:
+
+.center[
+![:scale 100%](wansink-careerism.png)
+]
+
+---
+# Summary points
+## Science is conducted by humans.
+## Many counternorms exist that undermine scientific integrity.
+
+--
+
+.center[
+## .orange[What can we do about it?]
+]
 
 ---
 ### A reproducible path forward: Reminaging the research lifecycle?
 ![](research-lifecycle-solution.png)
 
 .footnote[ Policy Design & Evaluation Lab (2017)]
-
----
-# Summary points
-## Science is conducted by humans.
-
-
-## Why Embrace Reproducible Research?
-## 1. For Science.
-## 2. For Your Research.
 
 ---
 class: center, top, inverse
