@@ -53,6 +53,7 @@ class: center, top, inverse
 ## .orange[**4.2 Sharing**]
 ## .orange[**4.3 Reproducible Example**]
 ]
+
 ---
 class: center, top, inverse
 # .orange[**4. Dissemination Solutions**]
@@ -62,12 +63,6 @@ class: center, top, inverse
 ## .gray[**4.2 Sharing**]
 ## .gray[**4.3 Reproducible Example**]
 ]
-
----
-
-class: center, middle
-
-# Replication Files
 
 ---
 # Replication files provide the 'recipe' for reproducing your results.
@@ -98,7 +93,7 @@ Find a workflow that works well for you.
 
 .left-column[
 ```{r, echo=F}
-ggplot() + geom_fontawesome("fa-clone", color='#f5bc6c') + theme_void()
+ggplot() + geom_fontawesome("fa-clone", color='steelblue') + theme_void()
 ```
 ]
 
@@ -161,12 +156,22 @@ ggplot() + geom_fontawesome("fa-check", color='steelblue') + theme_void()
 ]
 
 ---
-class: center, middle
+class: center, top, inverse
+# .orange[**4. Dissemination Solutions**]
 
-# Code/Data Sharing
+.left[
+## .gray[**4.1. Replication Files**]
+## .orange[**4.2 Sharing**]
+## .gray[**4.3 Reproducible Example**]
+]
 
 ---
 # Why share?
+.left-column[
+```{r, echo=F, out.height="100%", out.width="100%"}
+knitr::include_graphics("materials_large_color.png")
+```
+]
 .right-column[
 ### Credibility
 #### Others can reproduce or interrogate your findings.

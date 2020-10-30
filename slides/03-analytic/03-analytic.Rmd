@@ -453,13 +453,81 @@ Avoid abbreviations for commands (Stata).
 Consider breaking long files into several shorter ones.
 
 ---
-## Alignment and indentation
+.left-column[
+### Essential parts of a syntax file
+
+This example is for Stata, but the same principles apply to any software.
+]
+.right-column[
+![](stata-syntax.png)
+]
+
+---
+background-image: url(sas-syntax.png)
+background-size: contain
+class: right, top
+
+Same idea for SAS
+---
+### Similar for R, all are adaptable
+Consider how you feel when you read someone *else's* code when commenting!
+.pull-left[
+```r 
+# PROJECT
+  # Paper:
+  # Authors:
+
+# R Script
+  # Purpose: 
+  # Created: <date> by <author> 
+  # Updated: <date> 
+  # Inputs: <files required>
+  # Outputs: <tables and figures>
+
+######## PACKAGES ########
+# Check system for packages
+  need <- c("dplyr", "foreign") # list packages needed
+
+```
+]
+
+--
+
+.pull-right[
+```r
+######## ANALYSIS ########
+# First fit crude model
+fit1 <- lm(...)
+
+# Now add sets of confounders
+fit1 <- lm(...)
+
+# Non-linear model for binary outcome
+fit3 <- glm(...)
+
+######## ROBUSTNESS ########
+# Exposure measured with error (95% Se)
+# Quantitative bias analysis using
+# parameters from Smith et al. (2014)
+fit_corrected <- lm(...)
+```
+]
+
+---
+## Alignment, indentation, automation are your friends...
 
 .pull-left[
 ### Harder to read
 ```s
 keep sid class_id teacher grade1 ///
 grade2 grade3 pass
+```
+### Without automation
+```s
+//  create binary variables without loop
+generate y_lt2 = y<2 if !missing(y)
+generate y_lt3 = y<3 if !missing(y)
+generate y_lt4 = y<4 if !missing(y)
 ```
 ]
 
@@ -469,6 +537,77 @@ grade2 grade3 pass
 keep   sid class_id teacher grade1 ///
        grade2 grade3 pass
 ```
+### With automation
+```s
+//  create binary variables using a loop
+foreach cutpt in 2 3 4 {
+    gen y_lt`cutpt' = y<`cutpt' if !missing(y)
+  }
+```
+]
+
+---
+## Save outputs as objects to insert into papers
+.pull-left[
+R:
+```{r comment='#', eval=F}
+# a boring regression
+lm(dist ~ 1 + speed, data = cars)
+
+# save regression results for later
+{{fit <- lm(dist ~ 1 + speed, data = cars)}}
+```
+Note that `fit` contains our results. Now write to a table:
+```{r comment='#', eval=F}
+library(broom) # need broom pkg
+write.csv( tidy( fit ), "t1.csv")
+```
+Now `t1.csv` has estimates.
+]
+
+.pull-right[
+Stata:
+```{stata, eval=F}
+webuse auto, clear
+
+// another boring regression 
+regress price mpg
+{{estimates store m1}}
+```
+Here `m1` contains our model results. Write to a table:
+```{stata, eval=F}
+// need eststo package
+esttab m1 using t1.csv
+```
+Now `t1.csv` has estimates.
+]
+
+---
+### Can be adapted to other software
+.left-column[
+Key idea:  
+- Results are *static* tables.
+
+- Inserted into compiled manuscript.
+
+- No copy/paste.
+]
+
+.right-column[
+Example using SAS's **O**utput **D**elivery **S**ystem (ODS):
+```sas
+data etoh;
+set analysis.analysis;
+run;
+
+ods select ParameterEstimates;
+*ods csv file = "/home/sam.harper/Output/model.csv";
+proc logistic data=etoh;
+model drunk = free;
+run;
+ods csv close;
+```
+.orange[Results written to "model.csv" file]
 ]
 
 ---
@@ -532,114 +671,31 @@ exit
 ```
 
 ---
-Your turn #2
-Let's create a master script.
+### Your turn #2: Let's create a master script.
 
-.pull-left[
-An example using `{{}}`:
+1) Open the `myproject` you created in R or Stata and create a new script (File>New File> R Script or File> New > Do-file. Type the following code:
+- R: `print("Hello world!")`
+- Stata: `disp "Hello world!"`
 
-    `r ''````{r tidy=FALSE}
-    if (TRUE) {
-    *{{ message("Very important!") }}
-    }
-    ```
-]
+2) Save it as `1-hello.R` or `1-hello.do` in the "code" folder. 
 
---
+3) Repeat, creating another new script for `2-goodbye.R`, but type `"Goodbye world!"` instead of `"Hello world!"`
+    
+Now create a master script called `0-master.R`  or `0-master.do`that will run the two other scripts you created. The command to execute another file is `source` in R and is `do` in Stata. 
 
-.pull-right[
-Stata example
-```{stata, eval=F}
-    sysuse auto, clear
-   ```{/s}
-        describe
-   ```
+4) Run the .blue[master] script. 
+
+- Success? 
+`r emo::ji("white_check_mark")` if yes, `r emo::ji("stop_sign")` if no
+
+```{r, echo=F}
+countdown(minutes = 7)
 ```
-
-]
 
 ---
-### Writing "robust" code/scripts
-- Comment extensively
-- Use self-contained syntax  
-- Version control
-- Exclude directory information - use relative paths:
- 
-
-NO: 
-```{r, eval=F}
-use '/Users/samharper/Dropbox/-today/replication/workshop/project/data-clean.dta'
-```
- 
-YES:
-```{r, eval=F}
-use 'data-clean.dta'
-```
- 
-- Include seeds for random numbers
-- Archive user written programs / .ado files
-- Automate as much as you can to avoid mistakes and repetition.
-
-
----
-.left-column[
-### Essential parts of a syntax file
-
-This example is for Stata, but the same principles apply to any software.
-]
-.right-column[
-![](stata-syntax.png)
-]
-
----
-background-image: url(sas-syntax.png)
-background-size: contain
-class: right, top
-
-Same idea for SAS
----
-### Similar for R, all are adaptable
-Consider how you feel when you read someone *else's* code when commenting!
-.pull-left[
-```r 
-# PROJECT
-  # Paper:
-  # Authors:
-
-# R Script
-  # Purpose: 
-  # Created: <date> by <author> 
-  # Updated: <date> 
-  # Inputs: <files required>
-  # Outputs: <tables and figures>
-
-######## PACKAGES ########
-# Check system for packages
-  need <- c("dplyr", "foreign") # list packages needed
-
-```
-]
-
---
-
-.pull-right[
-```r
-######## ANALYSIS ########
-# First fit crude model
-fit1 <- lm(...)
-
-# Now add sets of confounders
-fit1 <- lm(...)
-
-# Non-linear model for binary outcome
-fit3 <- glm(...)
-
-######## ROBUSTNESS ########
-# Exposure measured with error (95% Se)
-# Quantitative bias analysis using
-# parameters from Smith et al. (2014)
-fit_corrected <- lm(...)
-```
+## Something like?
+.center[
+![:scale 80%](r-master-result.png)
 ]
 
 ---
@@ -653,12 +709,6 @@ class: center, top, inverse
 ## .orange[**3.4 Version Control**]
 ## .gray[3.4 Dynamic Documents]
 ]
-
-
----
-class: center, middle
-
-# Version Control
 
 ---
 .pull-left[
@@ -788,7 +838,7 @@ Keep a simple log to remind yourself of the location/content of major changes.
 ## Software solutions
 
 .right-column[
-Version control software: helps manage versions and edits to files (e.g., Microsoft Word’s “track changes”, or Google Doc’s “suggestion” feature)—many options.
+Version control software: helps manage versions and edits to files.
 
 Git: Open-source, “distributed model” of version control developed by creator of Linux.
 
@@ -804,6 +854,8 @@ GitHub / GitLab: Free, web-based service that hosts Git “repositories” and o
 ## Provides the entire narrative of your project.
 
 ## Allows you to go back in time.
+
+## Experiment without breaking things.
 
 ---
 How does Git work?
@@ -869,15 +921,25 @@ Fully automated so no mistakes from copying and pasting.
 Several formats, but most commonly using R Markdown in RStudio or Markdoc in Stata.
 
 ---
+.footnote[Krieger *PLoS* (2019)]
+.center[
+![:scale 90%](krieger-workflow.png)
+]
+
+---
 ## How can dynamic documents help?
 
-Include tables by linking to a file, instead of a static image.
+- Include tables by linking to a file, instead of a static image.
+- Reference an estimate (e.g. risk ratio) by linking to a value calculated by an analysis file, instead of a static number typed manually.
+- Automatically update tables and numbers if models and/ or data changes.
+- Produce entire paper with one or two clicks.
+- Most written using markdown language.
 
-Reference an estimate (e.g. risk ratio) by linking to a value calculated by an analysis file, instead of a static number typed manually.
+![](rmarkdown-flow.png)
 
-Automatically update tables and numbers if models and/ or data changes.
-
-Produce entire paper with one or two clicks.
+---
+background-image: url(markdown-cheat.png)
+background-size: contain
 
 ---
 ### Example of a whole paper written and submitted with Rmarkdown 
@@ -892,100 +954,17 @@ Produce entire paper with one or two clicks.
 ]
 
 ---
-## Save outputs as objects to insert into papers
-.pull-left[
-R:
-```{r comment='#', eval=F}
-# a boring regression
-lm(dist ~ 1 + speed, data = cars)
-
-# save regression results for later
-{{fit <- lm(dist ~ 1 + speed, data = cars)}}
-```
-Note that `fit` contains our results.]
-
-.pull-right[
-Stata:
-```{stata, eval=F}
-webuse auto, clear
-
-// another boring regression 
-regress price mpg
-{{estimates store m1}}
-```
-Here `m1` contains our model results.
-]
-
----
-### Can be adapted to other software
 .left-column[
-Key idea:  
-- Results are *static* tables.
+### Stata catching up
+Since Stata v15, now the `dyndoc` command can produce Word or HTML documents from Markdown. 
 
-- Inserted into compiled manuscript.
-
-- No copy/paste.
+More limited functionality than `markstat` but will likely improve.
 ]
 
 .right-column[
-Example using SAS's **O**utput **D**elivery **S**ystem (ODS):
-```sas
-data etoh;
-set analysis.analysis;
-run;
-
-ods select ParameterEstimates;
-*ods csv file = "/home/sam.harper/Output/model.csv";
-proc logistic data=etoh;
-model drunk = free;
-run;
-ods csv close;
-```
-.orange[Model results written to .csv file]
-]
----
-### Can be adapted to other software
-.left[
-Now write manuscript in Rmarkdown
-```yaml
-## Results
-
-We ran a logistic model:
-
-```{r, eval=F}
-t1 <- read_csv(here("slides/03-analytic", "model.csv"), skip=2,
-  col_names=c("Parameter", "df", "Estimate", "SE", "X2", "pvalue"))
-kable(t1, format = 'latex', digits=2, 
-      caption = "Logistic Estimates", booktabs = T) %>%
-      kable_styling(latex_options = "hold_position")
-
-Results look good!
-``````
-]
-
----
-### Can be adapted to other software
-.pull-left[
-Write text in Rmarkdown
-```yaml
-## Results
-
-We ran a logistic model:
-
-```{r, eval=F}
-t1 <- read_csv(here("slides/03-analytic", "model.csv"), skip=2,
-  col_names=c("Parameter", "df", "Estimate", "SE", "X2", "pvalue"))
-kable(t1, format = 'latex', digits=2, 
-      caption = "Logistic Estimates", booktabs = T) %>%
-      kable_styling(latex_options = "hold_position")
-
-Results look good!
-``````
-]
-
-.pull-right[
-![](sas-pdf.png)
-]
+.center[
+![](stata-dyndoc.png)
+]]
 
 ---
 # Main elements of a dynamic document
@@ -1001,7 +980,8 @@ Results look good!
 ]
 
 ---
-## Header
+## Header (also called YAML*)
+.footnote[*YAML stands for YAML Ain't Markup Language. Ha.]
 .pull-left[
 Rmarkdown:
 ```yaml
@@ -1116,12 +1096,98 @@ Same idea for code 'chunks':
 // Write stata code inside chunks
 sum mpg
 ``````
-Inline: single backtick `s r(mean)`.
+Inline: single backtick `` `s
+r(mean)` ``.
+]
+
+---
+### Allow text to update automatically when results change.
+.pull-left[
+Rmarkdown:
+
+Header + document text followed by code chunk:
+
+```yaml
+```r{eval=FALSE}
+fit1 <- lm(y ~ x, data=d)
+est <- summary(fit1)$coefficients["x","Estimate"]
+``````
+We find x increases y by  `` `r
+est` ``.
+
+.blue[Will update if data or estimates change.]
+
+]
+
+--
+
+.pull-right[
+Structure for Stata Markdown:
+
+Header + text with Stata code chunks:
+
+```yaml
+```s
+reg price mpg
+``````
+Mpg increases price by `` `s
+_b[mpg]` `` with a standard error of `` `s
+_se[mpg]` ``.
+
+.blue[These are dynamic values.]
+]
+
+---
+### Stata markdown example (start at project directory)
+.pull-left[
+Stata do-file (`code/paper.do`) calls the markdown file using the `markstat` command:
+```s
+// change to writing directory
+cd writing
+
+
+// generate the manuscript
+markstat using "paper.stmd", pdf
+
+// back to the main directory
+cd ..
+```
+]
+
+.pull-right[
+Markdown text (`writing/paper.stmd`)
+![](markstat-markdown.png)
+]
+
+---
+background-image: url(markstat-paper.png)
+background-size: contain
+
+---
+background-image: url(sas-rmd-workflow.png)
+background-size: contain
+class: center, right
+### Can be adapted to other software
+
+---
+
+.left-column[
+### Rmarkdown + results from SAS
+
+1. Use SAS to fit models, generate results.
+
+2. Export results to static tables.
+
+3. 'Knit' together with text using Rmarkdown.
+]
+
+.right-column[
+![](sas-pdf.png)
 ]
 
 ---
 class: center, top, inverse
-# .orange[**Break!**]
+# .orange[**Break!**] `r emo::ji("coffee")`
 ```{r, echo=F}
 countdown(minutes = 10, 
           left = 0, right = 0, bottom = "15%", top = "15%",
