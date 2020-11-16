@@ -87,7 +87,10 @@ Often specific to software but core ideas are the same.
 ]
 
 .pull-right[
-![](long-miguel.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "long-miguel.png"))
+```
+                        
 ]
 
 .footnote[ Long [(2009)](https://www.stata.com/bookstore/workflow-data-analysis-stata/); Christensen et al. [(2019)](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research)]
@@ -105,8 +108,10 @@ Technical help for:
 ]
 .pull-right[
 .center[
-![](rmarkdown-books.png)]
-]
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "rmarkdown-books.png"))
+```
+]]
 
 --
 
@@ -141,7 +146,9 @@ Hard, and isn't "fun".
 ---
 .footnote[Image credit: [OSF](https://osf.io)]
 ### Planning for the entire research pipeline
-![](osf-reproducible-workflow.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "osf-reproducible-workflow.png"))
+```
 
 ---
 # Use projects to keep things organized
@@ -149,12 +156,16 @@ Hard, and isn't "fun".
 
 .pull-left[
 RStudio: .blue[File > New Project...]
-![](new-rstudio-proj.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "new-rstudio-proj.png"))
+```
 ]
 
 .pull-right[
 Stata: .blue[File > New > Project...]
-![](new-stata-proj.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "new-stata-proj.png"))
+```
 ]
 
 ---
@@ -173,7 +184,9 @@ But `project/data` works anywhere.
 ---
 ## File organization
 .left-column[
-![](tree-directory.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "tree-directory.png"))
+```
 ]
 
 .right-column[
@@ -188,14 +201,18 @@ But `project/data` works anywhere.
 ---
 .pull-left[
 ### Look familar?
-![:scale 80%](file-org-bad.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "file-org-bad.png"))
+```
 ]
 
 --
 
 .pull-right[
 ### That's more like it.
-![:scale 80%](file-org-good.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "file-org-good.png"))
+```
 ]
 
 ---
@@ -209,7 +226,9 @@ Helps computers find your research!
 ]
 .right-column[
 .center[
-![](tier-folders.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "tier-folders.png"))
+```
 ]]
 
 ---
@@ -251,7 +270,9 @@ Note that "\Source" and "\Derived" data are never in the same folder.
 ]
 
 .right-column[
-![](long-directory.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "long-directory.png"))
+```
 ]
 
 ---
@@ -318,7 +339,7 @@ Ideally this should document what you did, why you did it, and how you did it.
 ### Alexander Graham Bell did it, so can you!
 .center[
 ```{r, echo=F, out.height="80%", out.width="80%"}
-knitr::include_graphics("bell-notebook-1876-03-09.png")
+knitr::include_graphics(here("images", "bell-notebook-1876-03-09.png"))
 ```
 ]
 
@@ -327,7 +348,10 @@ knitr::include_graphics("bell-notebook-1876-03-09.png")
 ### Example from a (poor) research log
 Any format is fine (text, Word, markdown). Requires discipline, but pays dividends later.
 
-![](harper-research-log-ex.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "harper-research-log-ex.png"))
+```
+
 
 ---
 ## Codebooks
@@ -345,12 +369,17 @@ Should include:
 
 .pull-right[
 .center[Good advice `r emo::ji("point_down")` 
-![:scale 70%](icpsr-guide.png)]
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "icpsr-guide.png"))
+```
+]
 ]
 
 ---
 ## Codebook example (Excel)
-![](codebook-excel.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "codebook-excel.png"))
+```
 
 ---
 ### Codebooks can also be automated (using R `r emo::ji("package")` `codebook`)
@@ -359,7 +388,9 @@ Import dataset: `codebook_data <- rio::import("fakedata.dta")`
 Generate codebook: `codebook(codebook_data)` `r emo::ji("point_down")`
 ]
 .center[
-![](codebook-r.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "codebook-r.png"))
+```
 ]
 ---
 # Dataset documentation
@@ -372,7 +403,9 @@ Generate codebook: `codebook(codebook_data)` `r emo::ji("point_down")`
 ]
 
 .pull-right[
-![](costello-survey.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "costello-survey.png"))
+```
 ]
 
 ---
@@ -461,11 +494,13 @@ Consider breaking long files into several shorter ones.
 This example is for Stata, but the same principles apply to any software.
 ]
 .right-column[
-![](stata-syntax.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "stata-syntax.png"))
+```
 ]
 
 ---
-background-image: url(sas-syntax.png)
+background-image: url(../../images/sas-syntax.png)
 background-size: contain
 class: right, top
 
@@ -636,7 +671,9 @@ Label output figures with descriptive names, but ones that aren’t likely to ch
 # "One script to rule them all"
 
 .left-column[
-![](frodo-ring.jpg)
+```{r, echo=F}
+knitr::include_graphics(here("images", "frodo-ring.jpg"))
+```
 ]
 
 .right-column[
@@ -701,7 +738,9 @@ countdown(minutes = 5)
 
 .right-column[
 .center[
-![](r-master-result.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "r-master-result.png"))
+```
 ]]
 
 ---
@@ -733,7 +772,9 @@ class: center, top, inverse
 ## Obligatory picture for every discussion of version control.
 ]
 .pull-right[
-![:scale 90%](final-doc.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "final-doc.png"))
+```
 ]
 
 ---
@@ -742,7 +783,9 @@ class: center, top, inverse
 ]
 
 .right-column[
-![](no-joke.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "no-joke.png"))
+```
 ]
 
 ---
@@ -780,14 +823,16 @@ class: center, top, inverse
 #What is the problem?
 Which draft is the current one? Which set of tables contain the "right" results?
 .center[
-![](vc-files.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "vc-files.png"))
+```
 ]
 
 ---
 ## A version control system (VCS) automatically keeps track of changes to files and code.
 .center[
 ```{r, echo=F, out.width=600, out.height=400}
-knitr::include_graphics("vc-image.png")
+knitr::include_graphics(here("images", "vc-image.png"))
 ```
 ]
 
@@ -868,7 +913,9 @@ GitHub / GitLab: Free, web-based service that hosts Git “repositories” and o
 
 ---
 How does Git work?
-![](github-workflow-diagram.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "github-workflow-diagram.png"))
+```
 
 
 ---
@@ -877,7 +924,9 @@ How does Git work?
 ### Provides the entire narrative of your project.
 ### Allows you to go back in time.
 ### Experiment without breaking things.
-![](git-hello-example.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "git-hello-example.png"))
+```
 
 ---
 ### How is that better than Dropbox?
@@ -891,7 +940,9 @@ Can "rollback" to earlier version, but that affects everyone.
 ]
 
 .right-column[
-![](strumpf-conflicted.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "strumpf-conflicted.png"))
+```
 ]
 
 ---
@@ -941,7 +992,9 @@ Several formats, but most commonly using R Markdown in RStudio or Markdoc in Sta
 ---
 .footnote[Krieger *PLoS* (2019)]
 .center[
-![:scale 90%](krieger-workflow.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "krieger-workflow.png"))
+```
 ]
 
 ---
@@ -953,23 +1006,29 @@ Several formats, but most commonly using R Markdown in RStudio or Markdoc in Sta
 - Produce entire paper with one or two clicks.
 - Most written using markdown language.
 
-![](rmarkdown-flow.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "rmarkdown-flow.png"))
+```
 
 ---
-background-image: url(markdown-cheat.png)
+background-image: url(../../images/markdown-cheat.png)
 background-size: contain
 
 ---
 ### Example of a whole paper written and submitted with Rmarkdown 
 .pull-left[
 .center[`paper.rmd` `r emo::ji("right_arrow")`
-![:scale 80%](arph-rmd.png)]
-]
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "arph-rmd.png"))
+```
+]]
 
 .pull-right[
 .center[`r emo::ji("right_arrow")` `paper.pdf`
-![:scale 90%](arph-pdf.png)]
-]
+```{r, echo=F}
+knitr::include_graphics(here("images", "arph-pdf.png"))
+```
+]]
 
 ---
 .left-column[
@@ -981,7 +1040,9 @@ More limited functionality than `markstat` but will likely improve.
 
 .right-column[
 .center[
-![](stata-dyndoc.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "stata-dyndoc.png"))
+```
 ]]
 
 ---
@@ -1174,15 +1235,17 @@ cd ..
 
 .pull-right[
 Markdown text (`writing/paper.stmd`)
-![](markstat-markdown.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "markstat-markdown.png"))
+```
 ]
 
 ---
-background-image: url(markstat-paper.png)
+background-image: url(../../images/markstat-paper.png)
 background-size: contain
 
 ---
-background-image: url(sas-rmd-workflow.png)
+background-image: url(../../images/sas-rmd-workflow.png)
 background-size: contain
 class: center, right
 ### Can be adapted to other software
@@ -1200,7 +1263,9 @@ class: center, right
 ]
 
 .right-column[
-![](sas-pdf.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "sas-pdf.png"))
+```
 ]
 
 ---

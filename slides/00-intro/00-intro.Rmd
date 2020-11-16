@@ -39,23 +39,29 @@ class: center, middle
 # *I have nothing to disclose, other than a strong commitment to open science*
 
 ---
-background-image: url(../images/wansink-bowl.png)
+background-image: url(../../images/wansink-bowl.png)
 background-size: contain
 class: inverse
 
 --
 
 .pull-left[
-![:scale 70%](here("wansink-mindless.jpg"))
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "wansink-mindless.jpg"))
+```
 ]
 
 --
 .pull-right[
-![:scale 80%](wansink-gscholar.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "wansink-gscholar.png"))
+```
 ]
 
 ---
-![](wansink-nestle.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "wansink-nestle.png"))
+```
 
 .footnote[ https://www.foodpolitics.com/2007/11/brian-wansink-at-the-usda/]
 
@@ -83,7 +89,9 @@ Wansink denied requests for access to the original data.
 --
 
 .pull-right[
-![](wansink-vox.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "wansink-vox.png"))
+```
 
 Wansink resigned from Cornell in 2019.
 ]
@@ -96,7 +104,9 @@ Tools have consequences
 .center[
 *SEPT2* gene
 ## `r emo::ji("point_down")`
-![:scale 30%](excel.png)
+```{r, echo=F, out.width="30%"}
+knitr::include_graphics(here("images", "excel.png"))
+```
 # `r emo::ji("point_down")`
 2-Sep
 
@@ -104,20 +114,29 @@ Tools have consequences
 
 .right-column[
 .center[
-![:scale 90%](ziemann-abstract.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "ziemann-abstract.png"))
+```
 ]]
 
 ---
 # More recently...
 .pull-left[
-![](excel-guardian.png)
-![:scale 65%](spreadsheets-box.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "excel-guardian.png"))
+```
+
+```{r, echo=F, out.width="65%"}
+knitr::include_graphics(here("images", "spreadsheets-box.png"))
+```
 ]
 
 .pull-right[
 Are Spreadsheets® right for you? Side effects may include:
 
-![](spreadsheets-side-effects.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "spreadsheets-side-effects.png"))
+```
 ]
 
 .footnote[ Sources: The Guardian [(2020-10-06)](https://www.theguardian.com/politics/2020/oct/05/how-excel-may-have-caused-loss-of-16000-covid-tests-in-england), [YouTube](https://www.youtube.com/watch?v=aBoKwArgC3A)]

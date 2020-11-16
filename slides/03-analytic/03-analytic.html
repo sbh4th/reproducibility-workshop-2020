@@ -71,7 +71,8 @@ Often specific to software but core ideas are the same.
 ]
 
 .pull-right[
-![](long-miguel.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/long-miguel.png" width="1731" /&gt;
+                        
 ]
 
 .footnote[ Long [(2009)](https://www.stata.com/bookstore/workflow-data-analysis-stata/); Christensen et al. [(2019)](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research)]
@@ -89,8 +90,8 @@ Technical help for:
 ]
 .pull-right[
 .center[
-![](rmarkdown-books.png)]
-]
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/rmarkdown-books.png" width="70%" /&gt;
+]]
 
 --
 
@@ -125,7 +126,7 @@ Hard, and isn't "fun".
 ---
 .footnote[Image credit: [OSF](https://osf.io)]
 ### Planning for the entire research pipeline
-![](osf-reproducible-workflow.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/osf-reproducible-workflow.png" width="1571" /&gt;
 
 ---
 # Use projects to keep things organized
@@ -133,12 +134,12 @@ Hard, and isn't "fun".
 
 .pull-left[
 RStudio: .blue[File &gt; New Project...]
-![](new-rstudio-proj.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/new-rstudio-proj.png" width="1571" /&gt;
 ]
 
 .pull-right[
 Stata: .blue[File &gt; New &gt; Project...]
-![](new-stata-proj.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/new-stata-proj.png" width="1731" /&gt;
 ]
 
 ---
@@ -157,7 +158,7 @@ But `project/data` works anywhere.
 ---
 ## File organization
 .left-column[
-![](tree-directory.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/tree-directory.png" width="1048" /&gt;
 ]
 
 .right-column[
@@ -172,14 +173,14 @@ But `project/data` works anywhere.
 ---
 .pull-left[
 ### Look familar?
-![:scale 80%](file-org-bad.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/file-org-bad.png" width="80%" /&gt;
 ]
 
 --
 
 .pull-right[
 ### That's more like it.
-![:scale 80%](file-org-good.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/file-org-good.png" width="1195" /&gt;
 ]
 
 ---
@@ -193,7 +194,7 @@ Helps computers find your research!
 ]
 .right-column[
 .center[
-![](tier-folders.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/tier-folders.png" width="80%" /&gt;
 ]]
 
 ---
@@ -218,7 +219,7 @@ class: center, top, inverse
 - Browse to where the program file exists and double-click.
 - Where is the current directory located? (Hint: type `getwd()` into the R console or `pwd` in the Stata command line).
 
-<div class="countdown" id="timer_5f9c1b5f" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5fb30a1a" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -235,7 +236,7 @@ Note that "\Source" and "\Derived" data are never in the same folder.
 ]
 
 .right-column[
-![](long-directory.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/long-directory.png" width="2045" /&gt;
 ]
 
 ---
@@ -282,7 +283,7 @@ class: center, middle
 ---
 # Research Log
 .left-column[
-&lt;img src="03-analytic_files/figure-html/unnamed-chunk-3-1.png" width="100%" height="100%" /&gt;
+&lt;img src="03-analytic_files/figure-html/unnamed-chunk-13-1.png" width="100%" height="100%" /&gt;
 ]
 
 .right-column[
@@ -299,7 +300,7 @@ Ideally this should document what you did, why you did it, and how you did it.
 ---
 ### Alexander Graham Bell did it, so can you!
 .center[
-&lt;img src="bell-notebook-1876-03-09.png" width="80%" height="80%" /&gt;
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/bell-notebook-1876-03-09.png" width="80%" height="80%" /&gt;
 ]
 
 .footnote[ [Image credit](https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell%27s_notebook,_March_9,_1876.PNG)]
@@ -307,7 +308,8 @@ Ideally this should document what you did, why you did it, and how you did it.
 ### Example from a (poor) research log
 Any format is fine (text, Word, markdown). Requires discipline, but pays dividends later.
 
-![](harper-research-log-ex.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/harper-research-log-ex.png" width="2165" /&gt;
+
 
 ---
 ## Codebooks
@@ -325,12 +327,13 @@ Should include:
 
 .pull-right[
 .center[Good advice 👇 
-![:scale 70%](icpsr-guide.png)]
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/icpsr-guide.png" width="70%" /&gt;
+]
 ]
 
 ---
 ## Codebook example (Excel)
-![](codebook-excel.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/codebook-excel.png" width="2472" /&gt;
 
 ---
 ### Codebooks can also be automated (using R 📦 `codebook`)
@@ -339,7 +342,7 @@ Import dataset: `codebook_data &lt;- rio::import("fakedata.dta")`
 Generate codebook: `codebook(codebook_data)` 👇
 ]
 .center[
-![](codebook-r.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/codebook-r.png" width="3557" /&gt;
 ]
 ---
 # Dataset documentation
@@ -352,7 +355,7 @@ Generate codebook: `codebook(codebook_data)` 👇
 ]
 
 .pull-right[
-![](costello-survey.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/costello-survey.png" width="1424" /&gt;
 ]
 
 ---
@@ -437,11 +440,11 @@ Consider breaking long files into several shorter ones.
 This example is for Stata, but the same principles apply to any software.
 ]
 .right-column[
-![](stata-syntax.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/stata-syntax.png" width="2285" /&gt;
 ]
 
 ---
-background-image: url(sas-syntax.png)
+background-image: url(../../images/sas-syntax.png)
 background-size: contain
 class: right, top
 
@@ -596,7 +599,7 @@ ods csv close;
 # Structure and name files intuitively.
 .footnote[See Jenny Bryan's [talk](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf) on naming things.]
 .left-column[
-&lt;img src="03-analytic_files/figure-html/unnamed-chunk-9-1.png" width="100%" height="100%" /&gt;
+&lt;img src="03-analytic_files/figure-html/unnamed-chunk-25-1.png" width="100%" height="100%" /&gt;
 ]
 
 .right-column[
@@ -614,7 +617,7 @@ Label output figures with descriptive names, but ones that aren’t likely to ch
 # "One script to rule them all"
 
 .left-column[
-![](frodo-ring.jpg)
+![](/Users/samharper/git/reproducibility-workshop-2020/images/frodo-ring.jpg)&lt;!-- --&gt;
 ]
 
 .right-column[
@@ -669,7 +672,7 @@ Now create a master script called `0-master.R`  or `0-master.do` that will run t
 - Success? 
 ✅ if yes, 🛑 if no
 
-<div class="countdown" id="timer_5f9c1bc8" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5fb30c0e" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -680,13 +683,13 @@ Now create a master script called `0-master.R`  or `0-master.do` that will run t
 
 .right-column[
 .center[
-![](r-master-result.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/r-master-result.png" width="2413" /&gt;
 ]]
 
 ---
 class: center, top, inverse
 # .orange[**Break!**] ☕
-<div class="countdown" id="timer_5f9c1b2e" style="top:15%;right:0;bottom:15%;left:0;margin:5%;padding:50px;font-size:7em;" data-warnwhen="0">
+<div class="countdown" id="timer_5fb30d3e" style="top:15%;right:0;bottom:15%;left:0;margin:5%;padding:50px;font-size:7em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -707,7 +710,7 @@ class: center, top, inverse
 ## Obligatory picture for every discussion of version control.
 ]
 .pull-right[
-![:scale 90%](final-doc.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/final-doc.png" width="90%" /&gt;
 ]
 
 ---
@@ -716,7 +719,7 @@ class: center, top, inverse
 ]
 
 .right-column[
-![](no-joke.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/no-joke.png" width="1541" /&gt;
 ]
 
 ---
@@ -754,13 +757,13 @@ class: center, top, inverse
 #What is the problem?
 Which draft is the current one? Which set of tables contain the "right" results?
 .center[
-![](vc-files.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/vc-files.png" width="1279" /&gt;
 ]
 
 ---
 ## A version control system (VCS) automatically keeps track of changes to files and code.
 .center[
-&lt;img src="vc-image.png" width="600" height="400" /&gt;
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/vc-image.png" width="600" height="400" /&gt;
 ]
 
 ---
@@ -789,7 +792,7 @@ We just don't usually see it.
 ---
 ## How can version control help?
 .left-column[
-![](03-analytic_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](03-analytic_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
 ]
 
 .right-column[
@@ -838,7 +841,7 @@ GitHub / GitLab: Free, web-based service that hosts Git “repositories” and o
 
 ---
 How does Git work?
-![](github-workflow-diagram.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/github-workflow-diagram.png" width="2200" /&gt;
 
 
 ---
@@ -847,7 +850,7 @@ How does Git work?
 ### Provides the entire narrative of your project.
 ### Allows you to go back in time.
 ### Experiment without breaking things.
-![](git-hello-example.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/git-hello-example.png" width="1712" /&gt;
 
 ---
 ### How is that better than Dropbox?
@@ -861,7 +864,7 @@ Can "rollback" to earlier version, but that affects everyone.
 ]
 
 .right-column[
-![](strumpf-conflicted.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/strumpf-conflicted.png" width="2115" /&gt;
 ]
 
 ---
@@ -911,7 +914,7 @@ Several formats, but most commonly using R Markdown in RStudio or Markdoc in Sta
 ---
 .footnote[Krieger *PLoS* (2019)]
 .center[
-![:scale 90%](krieger-workflow.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/krieger-workflow.png" width="90%" /&gt;
 ]
 
 ---
@@ -923,23 +926,23 @@ Several formats, but most commonly using R Markdown in RStudio or Markdoc in Sta
 - Produce entire paper with one or two clicks.
 - Most written using markdown language.
 
-![](rmarkdown-flow.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/rmarkdown-flow.png" width="2269" /&gt;
 
 ---
-background-image: url(markdown-cheat.png)
+background-image: url(../../images/markdown-cheat.png)
 background-size: contain
 
 ---
 ### Example of a whole paper written and submitted with Rmarkdown 
 .pull-left[
 .center[`paper.rmd` ➡️
-![:scale 80%](arph-rmd.png)]
-]
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/arph-rmd.png" width="80%" /&gt;
+]]
 
 .pull-right[
 .center[➡️ `paper.pdf`
-![:scale 90%](arph-pdf.png)]
-]
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/arph-pdf.png" width="1571" /&gt;
+]]
 
 ---
 .left-column[
@@ -951,7 +954,7 @@ More limited functionality than `markstat` but will likely improve.
 
 .right-column[
 .center[
-![](stata-dyndoc.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/stata-dyndoc.png" width="2680" /&gt;
 ]]
 
 ---
@@ -1144,15 +1147,15 @@ cd ..
 
 .pull-right[
 Markdown text (`writing/paper.stmd`)
-![](markstat-markdown.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/markstat-markdown.png" width="1213" /&gt;
 ]
 
 ---
-background-image: url(markstat-paper.png)
+background-image: url(../../images/markstat-paper.png)
 background-size: contain
 
 ---
-background-image: url(sas-rmd-workflow.png)
+background-image: url(../../images/sas-rmd-workflow.png)
 background-size: contain
 class: center, right
 ### Can be adapted to other software
@@ -1170,13 +1173,13 @@ class: center, right
 ]
 
 .right-column[
-![](sas-pdf.png)
+&lt;img src="/Users/samharper/git/reproducibility-workshop-2020/images/sas-pdf.png" width="947" /&gt;
 ]
 
 ---
 class: center, top, inverse
 # .orange[**Break!**] ☕
-<div class="countdown" id="timer_5f9c1a24" style="top:15%;right:0;bottom:15%;left:0;margin:5%;padding:50px;font-size:7em;" data-warnwhen="0">
+<div class="countdown" id="timer_5fb30d5b" style="top:15%;right:0;bottom:15%;left:0;margin:5%;padding:50px;font-size:7em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
     </textarea>

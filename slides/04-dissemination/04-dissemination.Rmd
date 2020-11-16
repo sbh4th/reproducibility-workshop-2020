@@ -18,6 +18,7 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+library(tidyverse)
 library(here)
 library(DiagrammeR)
 library(xaringan)
@@ -157,7 +158,9 @@ ggplot() + geom_fontawesome("fa-check", color='steelblue') + theme_void()
 ---
 ### How replication can help
 .left-column[
-![](materials_large_color.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "materials_large_color.png"))
+```
 ]
 
 .right-column[
@@ -180,7 +183,9 @@ Reported 12 year decrease in life expectancy for sexual minorities living in mor
 ]
 .right-column[
 .center[
-![:scale 70%](same-sex-nyt.png)
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "same-sex-nyt.png"))
+```
 ]]
 
 ---
@@ -197,7 +202,9 @@ Study retracted.
 ]
 .right-column[
 .center[
-![:scale 80%](same-sex-retraction.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "same-sex-retraction.png"))
+```
 ]]
 
 ---
@@ -213,7 +220,7 @@ class: center, top, inverse
 # Why share?
 .left-column[
 ```{r, echo=F, out.height="100%", out.width="100%"}
-knitr::include_graphics("materials_large_color.png")
+knitr::include_graphics(here("images", "materials_large_color.png"))
 ```
 ]
 .right-column[
@@ -260,7 +267,9 @@ knitr::include_graphics("materials_large_color.png")
 ]
 
 .pull-right[
-![:scale 90%](oxford-license.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "oxford-license.png"))
+```
 ]
 
 ---
@@ -279,7 +288,9 @@ Concerns:
 
 .pull-right[
 ### Many resources to help
-![](marwick-title.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "marwick-title.png"))
+```
 ]
 
 ---
@@ -296,7 +307,7 @@ Code may not run somewhere else. People are working on that:
 ]
 
 ---
-background-image: url(marwick-figs.png)
+background-image: url(../../images/marwick-figs.png)
 background-size: contain
 class: center, top
 
@@ -318,7 +329,9 @@ class: center, top
 
 ---
 ### Replication files may not matter!
-![](dansiger-letter.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "dansiger-letter.png"))
+```
 
 ---
 ### Biased anecdote for benefits of sharing *with* paper submission
@@ -353,7 +366,9 @@ Depends on discipline: find appropriate registry at http://www.re3data.org/, or 
 ]
 
 .pull-right[
-![](repos.jpg)
+```{r, echo=F}
+knitr::include_graphics(here("images", "repos.jpg"))
+```
 ]
 
 ---
@@ -369,7 +384,9 @@ OSF also provides a more comprehensive system for planning, documenting, executi
 ]
 
 .pull-right[
-![](osf-add-ons.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "osf-add-ons.png"))
+```
 ]
 
 ---
@@ -391,24 +408,33 @@ OSF also provides a more comprehensive system for planning, documenting, executi
 ---
 ### Manage access/permissions
 .center[
-![](osf-permissions.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "osf-permissions.png"))
+```
 ]
 
 ---
 ### Automate version control
 .center[
-![:scale 70%](osf-vcs.png)
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "osf-vcs.png"))
+```
 ]
 
 ---
 ### Persistent, unique .red[identifiers] for published work
 .center[
-![:scale 70%](osf-id-example.png)
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "osf-id-example.png"))
+```
 ]
 ---
 # Not everything can (or should) be shared
 ### Spectrum for sharing sensitive material:
-![](sturdy-spectrum.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "sturdy-spectrum.png"))
+```
+
 .footnote[ Source: Jennifer Sturdy (https://osf.io/5yq4u/)]
 
 ---
@@ -420,7 +446,9 @@ Allows for maximum sharing without sacrificing privacy concerns.
 
 .right-column[
 .center[
-![:scale 60%](osf-private.png)
+```{r, echo=F, out.width="60%"}
+knitr::include_graphics(here("images", "osf-private.png"))
+```
 ]]
 
 ---
@@ -438,7 +466,10 @@ But people rate in many places, some of which .red[do] contain personal data.
 ]
 
 .pull-right[
-![](narayanan-netflix.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "narayanan-netflix.png"))
+```
+
 ]
 
 ---
@@ -469,7 +500,9 @@ But people rate in many places, some of which .red[do] contain personal data.
 ]
 
 .pull-right[
-![](quintana-title.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "quintana-title.png"))
+```
 ]
 
 .footnote[ Quintana (2020)]
@@ -484,7 +517,7 @@ class: middle, center
 ## Does chocolate increase graduate student happiness?
 
 ---
-background-image: url(choc-happy-design.png)
+background-image: url(../../images/choc-happy-design.png)
 background-size: contain
 
 ---
@@ -506,14 +539,18 @@ background-size: contain
 
 .right-column[
 .center[
-![:scale 70%](choc-happy-design.png)
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "choc-happy-design.png"))
+```
 ]]
 
 ---
 class: left
 ### Folder structure
 Separate code from data and manuscript:
-![](choc-folders.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "choc-folders.png"))
+```
 ---
 class: middle, center
 # Live Demo
@@ -522,9 +559,14 @@ class: middle, center
 ---
 ## Follow along
 ### Create a copy of the OSF [repository](https://osf.io/3fcxd/) (called 'forking')
-![:scale 70%](osf-fork.png)
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "osf-fork.png"))
+```
+
 ### Clone the GitHub [repository]() (download to your machine)
-![:scale 40%](github-clone.png)
+```{r, echo=F, out.width="40%"}
+knitr::include_graphics(here("images", "github-clone.png"))
+```
 
 
 ---
@@ -534,8 +576,11 @@ class: middle, center, inverse
 ---
 # Working with "friends"
 .center[
-![](nandi-cluster.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "nandi-cluster.png"))
+```
 ]
+
 1. Ugh.
 2. He's right.
 2. Need to regenerate the model and table results.
@@ -583,7 +628,9 @@ Selfish reasons to work reproducibly:
 ]
 
 .pull-right[
-![:scale 90%](research-lifecycle.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "research-lifecycle.png"))
+```
 ]
 
 .footnote[ Markowetz (2015)]
@@ -613,9 +660,9 @@ Selfish reasons to work reproducibly:
 ]
 
 ---
-background-image: url(mcgill-university.jpg)
+background-image: url(../../images/mcgill-university.jpg)
 background-size: contain
 class: center, middle
 #### .white[sam.harper@mcgill.ca]
 #### .white[@sbh4th]
-<img src="mcgill-logo-transparent.png" style="width: 15%" />
+<img src="../../images/mcgill-logo-transparent.png" style="width: 15%" />

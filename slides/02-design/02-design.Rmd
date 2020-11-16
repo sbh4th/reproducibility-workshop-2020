@@ -87,7 +87,7 @@ class: center, top, inverse
 # What is preregistration?
 .left-column[
 ```{r, echo=F, out.height="100%", out.width="100%"}
-knitr::include_graphics("preregistered_large_color.png")
+knitr::include_graphics(here("images", "preregistered_large_color.png"))
 # ggplot() + geom_fontawesome("fa-pencil-square-o", color='steelblue') + theme_void()
 ```
 ]
@@ -132,7 +132,9 @@ Good for planning and hypothesizing, .red[not a straightjacket.]
 ]
 
 .pull-right[
-![](lash-prereg.png)
+```{r, echo=F, out.height="100%", out.width="100%"}
+knitr::include_graphics(here("images", "lash-prereg.png"))
+```
 ]
 
 .footnote[Lash and Vandenbroucke, *Epidemiology* [(2012)](https://doi.org/10.1097/EDE.0b013e318245c05b)]
@@ -141,7 +143,7 @@ Good for planning and hypothesizing, .red[not a straightjacket.]
 # Where can you pre-register your study?
 .left-column[
 ```{r, echo=F}
-knitr::include_graphics("preregistered_large_color.png")
+knitr::include_graphics(here("images", "preregistered_large_color.png"))
 # ggplot() + geom_fontawesome("fa-pencil-square-o", color='steelblue') + theme_void()
 ```
 ]
@@ -162,7 +164,9 @@ knitr::include_graphics("preregistered_large_color.png")
 ### Where can you find templates for preregistration?
 .footnote[See the [page](https://osf.io/zab38/wiki/home/) at Open Science Foundation]
 
-![](osf-prereg-wiki.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "osf-prereg-wiki.png"))
+```
 
 ---
 # Writing up pre-registered studies
@@ -193,11 +197,11 @@ In 2000 NHLBI required the registration of primary outcome on ClinicalTrials.gov
 
 .right-column[
 ```{r, echo=F, message=F}
-d <- read_csv("kaplan-2015-data.csv",
+d <- read_csv(here("data", "kaplan-2015-data.csv"),
   col_names=c("Year", "RR", "type"), col_types = "ddf")
 p <- ggplot(d, aes(x=Year, y=RR, colour=type)) + geom_vline(xintercept=2000) +  geom_point(size=5) + geom_curve(aes(x = 2006, y = 1.5, xend = 2005, yend = 1.25), curvature=0.2, arrow = arrow(length = unit(0.03, "npc")), colour="grey60") + annotate("text", label = "Increase in\nnull findings.", x = 2006, y = 1.8, size = 9, colour = "gray60", hjust=0) + geom_curve(aes(x = 1999, y = 2, xend = 1999.9, yend = 2), curvature=0, arrow = arrow(length = unit(0.01, "npc")), color="grey20") + annotate("text", label = "Registration\nrequired", x=1999, y=2, size=5, color="grey20", hjust=1) + scale_y_log10(limits=c(0.1,2)) + ylab("RR (log scale)") + scale_color_manual(name="Finding", values=c("grey60", "#6ca0f5", "#d6463a")) + theme_classic() + theme(plot.title = element_text(size = 18, face = "bold"), plot.subtitle = element_text(size=16)) + theme(axis.text.x = element_text(size = 16, colour = "grey20"), axis.title.y=element_text(size=16, angle=90, colour="grey20"), axis.title.x=element_text(size=20, colour="grey20"), axis.text.y = element_text(size = 16, colour="grey20"), legend.position=c(0.9, 0.25), legend.text = element_text(size=14), legend.title = element_text(size=16), panel.grid.major.y = element_line(linetype="dotted", colour="grey60"), panel.grid.major.x = element_line(colour="white"), panel.grid.minor = element_line(colour="white")) + theme(axis.line.x=element_line(colour="grey60"), axis.line.y=element_line(colour="grey60"), axis.ticks = element_blank())
-ggsave("kaplan-plos-redraw.png", plot=p, width=11, height=7)
-knitr::include_graphics("kaplan-plos-redraw.png")
+ggsave(here("images", "kaplan-plos-redraw.png"), plot=p, width=11, height=7)
+knitr::include_graphics(here("images", "kaplan-plos-redraw.png"))
 ```
 ]
 
@@ -212,13 +216,19 @@ class: center, top, inverse
 ---
 ## Emphasis on design: .red[Registered Reports]
 
-![](lee-rr-stage1.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "lee-rr-stage1.png"))
+```
+
 .footnote[ Lee (2019)]
 
 ---
 ## Emphasis on design: .red[Registered Reports]
 
-![](lee-rr.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "lee-rr.png"))
+```
+
 .footnote[ Lee (2019)]
 
 ---
@@ -235,7 +245,9 @@ Big difference from non-registered studies.
 
 .right-column[
 .center[
-![:scale 75%](allen-rr-2019.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "allen-rr-2019.png"))
+```
 ]]
 
 ---
@@ -248,7 +260,9 @@ class: center, top, inverse
 .footnote[Zarin *NEJM* (2019)]
 .center[
 A majority of registerd RCTs still not reported.
-![:scale 80%](zarin-nejm-2019-fig.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "zarin-nejm-2019-fig.png"))
+```
 ]
 
 
@@ -263,7 +277,7 @@ A majority of registerd RCTs still not reported.
 
 .right-column[
 ```{r, echo=F, out.width=700}
-knitr::include_graphics("goldacre-compare-title.png")
+knitr::include_graphics(here("images", "goldacre-compare-title.png"))
 ```
 ]
 
@@ -273,7 +287,7 @@ knitr::include_graphics("goldacre-compare-title.png")
 # Academic journals are not helping
 .center[
 ```{r, echo=F, out.width=700}
-knitr::include_graphics("goldacre-compare-table.png")
+knitr::include_graphics(here("images", "goldacre-compare-table.png"))
 ```
 ]
 
@@ -313,7 +327,9 @@ class: center, top, inverse
 ]
 
 .right-column[
-![](targets.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "targets.png"))
+```
 ]
 .footnote[ *New Yorker*, 2014-12-07]
 
@@ -321,8 +337,7 @@ class: center, top, inverse
 # What is a pre-analysis plan?
 .left-column[
 ```{r, echo=F}
-knitr::include_graphics("notebook.png")
-# ggplot() + geom_fontawesome("fa-pencil-square-o", color='steelblue') + theme_void()
+knitr::include_graphics(here("images", "notebook.png"))
 ```
 ]
 
@@ -398,21 +413,27 @@ knitr::include_graphics("notebook.png")
 .footnote[ Casey et al. [(2012)](https://academic.oup.com/qje/article-abstract/127/4/1755/1841616?redirectedFrom=fulltext)]
 
 .pull-left[
-![](casey-title.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "casey-title.png"))
+```
 ]
 
 --
 
 .pull-right[
 ### Conclusions:
-![](casey-conclusion.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "casey-conclusion.png"))
+```
 ]
 
 ---
 ## Example from epidemiology
 Note the time-stamp, which provides credible evidence of *when* you had your brilliant ideas.
 
-![](harper-pap-stamp.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "harper-pap-stamp.png"))
+```
 
 
 ---
@@ -425,7 +446,9 @@ Can you prove when you obtained data access?
 
 .right-column[
 .center[
-![:scale 100%](harper-pap-abstract.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "harper-pap-abstract.png"))
+```
 ]]
 
 ---
@@ -445,8 +468,10 @@ class: center, top, inverse
 ]
 
 .pull-right[
-![](glasziou-title.png)
-![](glasziou-table.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "glasziou-title.png"))
+knitr::include_graphics(here("images", "glasziou-table.png"))
+```
 ]
 
 ---
@@ -461,7 +486,9 @@ Can they actually understand what you did?
 --
 
 .right-column[
-![](hoffman-title.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "hoffman-title.png"))
+```
 - Of 137 interventions, only 53 (39%) were adequately described;
 
 - The most frequently missing item was the “intervention materials”
@@ -482,7 +509,9 @@ Missing due to:
 
 .right-column[
 .center[
-![:scale 85%](hoffman-fig.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "hoffman-fig.png"))
+```
 ]]
 
 ---
@@ -516,7 +545,9 @@ Reporting guidelines exist for entire research lifecycle
 ]]
 
 ---
-![](equator-network-2020.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "equator-network-2020.png"))
+```
 
 ---
 ## (Some) evidence that it might matter.
@@ -532,14 +563,18 @@ Reporting guidelines exist for entire research lifecycle
 
 .right-column[
 .center[
-![:scale 80%](hopewell-title.png)
-![:scale 80%](hopewell-bmj-fig2.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "hopewell-title.png"))
+knitr::include_graphics(here("images", "hopewell-bmj-fig2.png"))
+```
 ]]
 
 ---
 Since 2015 funders, journals are embracing *Transparency and Openness* (TOP) guidelines.
 .center[
-![:scale 90%](TOP_standards.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "TOP_standards.png"))
+```
 ]
 
 .footnote[Source: OSF]
@@ -561,7 +596,9 @@ Most journals chose *Level 1* (disclosure)
 ]
 
 .pull-right[
-![](hamra-paper.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "hamra-paper.png"))
+```
 ]
 
 ---

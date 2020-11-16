@@ -80,7 +80,9 @@ class: center, top, inverse
 ]
 
 .pull-right[
-![](merton-note.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "merton-note.png"))
+```
 ]
 
 .footnote[ Merton (1942), Christensen et al. (2019)]
@@ -131,12 +133,13 @@ class: center, top, inverse
 ]
 
 ---
-class: center
-Affects the entire research lifecycle
 .footnote[ Munafo et al. (2017)]
+
+.center[Affects the entire research lifecycle
 ```{r,  echo=F, out.width = 900}
-knitr::include_graphics("munafo-figure.png")
+knitr::include_graphics(here("images", "munafo-figure.png"))
 ```
+]
 
 ---
 class: center, top, inverse
@@ -161,7 +164,9 @@ class: center, top, inverse
 ]]
 
 .right-column[
-![:scale 100%](christensen-norms-arrow.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "christensen-norms-arrow.png"))
+```
 ]
 
 ---
@@ -173,7 +178,9 @@ class: center, top, inverse
 ]
 .right-column[
 .center[
-![:scale 70%](fanelli-qrp-figure.png)
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "fanelli-qrp-figure.png"))
+```
 ]]
 
 ---
@@ -185,7 +192,9 @@ class: center, top, inverse
 ]
 .right-column[
 .center[
-![:scale 70%](baker-crisis.png)
+```{r, echo=F, out.width="70%"}
+knitr::include_graphics(here("images", "baker-crisis.png"))
+```
 ]]
 
 ---
@@ -204,7 +213,9 @@ class: center, top, inverse
 ]
 
 .pull-right[
-![](pushing-for-p.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "pushing-for-p.png"))
+```
 ]
 
 .footnote[ https://mobile.twitter.com/wviechtb/status/1228327958810648576/photo/1]
@@ -239,7 +250,9 @@ at the estimates.
 ]
 
 ---
-![](truth-vigilantes-soccer-calls2.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "truth-vigilantes-soccer-calls2.png"))
+```
 
 .footnote[ Source: [fivethirtyeight.com](https://projects.fivethirtyeight.com/p-hacking/)]
 
@@ -259,11 +272,11 @@ countdown(minutes = 3)
 ```
 
 ---
-background-image: url(hacking-result.png)
+background-image: url(../../images/hacking-result.png)
 background-size: contain
 
 ---
-background-image: url(hacking-result2.png)
+background-image: url(../../images/hacking-result2.png)
 background-size: contain
 
 ---
@@ -276,7 +289,9 @@ background-size: contain
 ]
 .right-column[
 .center[
-![:scale 90%](lash-aje-2017d.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "lash-aje-2017d.png"))
+```
 ]]
 
 
@@ -293,7 +308,7 @@ Two estimates:
 - HR=0.89, 95%CI: 0.78, 1.00009 .red["No difference"]
 
 ````{r, echo=F, out.width=700}
-knitr::include_graphics("aha-ns.jpeg")
+knitr::include_graphics(here("images", "aha-ns.jpeg"))
 ```
 ]
 ---
@@ -306,7 +321,7 @@ knitr::include_graphics("aha-ns.jpeg")
 .right-column[
 P-values in the biomedical literature, 1990-2015
 ````{r, echo=F, out.width=700}
-knitr::include_graphics("chavalarais-fig3.png")
+knitr::include_graphics(here("images", "chavalarais-fig3.png"))
 ```
 ]
 
@@ -322,7 +337,7 @@ True for medicine, economics, psychology, political science, many other discipli
 .right-column[
 P-values from 260 RCTs
 ````{r, echo=F, out.width=700}
-knitr::include_graphics("gotzsche.png")
+knitr::include_graphics(here("images", "gotzsche.png"))
 ```
 ]
 
@@ -338,7 +353,7 @@ Researchers still dichotomize them.
 .right-column[
 .center[Nearly 1,000,000 95% CIs from PubMed:]
 ````{r, echo=F, out.width=700}
-knitr::include_graphics("wren-cis.png")
+knitr::include_graphics(here("images", "wren-cis.png"))
 ```
 ]
 
@@ -358,8 +373,12 @@ Impacts regulatory decisions.
 
 .right-column[
 .center[
-![:scale 60%](turner-nejm-title.png)
-![:scale 50%](turner-nejm-figure.png)
+```{r, echo=F, out.width="80%"}
+knitr::include_graphics(here("images", "turner-nejm-title.png"))
+```
+```{r, echo=F, out.width="50%"}
+knitr::include_graphics(here("images", "turner-nejm-figure.png"))
+```
 ]]
 
 ---
@@ -374,7 +393,9 @@ Impacts regulatory decisions.
 
 .pull-right[
 .center[
-![:scale 90%](yong-accentuate.png)
+```{r, echo=F, out.width="90%"}
+knitr::include_graphics(here("images", "yong-accentuate.png"))
+```
 ]]
 
 ---
@@ -393,7 +414,9 @@ All studies had results.
 
 .right-column[
 .center[
-![:scale 65%](mervis-franco-fig.png)
+```{r, echo=F, out.width="65%"}
+knitr::include_graphics(here("images", "mervis-franco-fig.png"))
+```
 ]]
 
 ---
@@ -434,14 +457,14 @@ If we start from the *same* data gathered by the scientist we can reproduce the 
 .pull-left[
 #### In Psychology
 ```{r,  echo=F, out.width = 650}
-knitr::include_graphics("nosek-abstract.png") 
+knitr::include_graphics(here("images", "nosek-abstract.png")) 
 ```
 ]
 
 .pull-right[
 #### In Economics
 ```{r,  echo=F, out.width = 650}
-knitr::include_graphics("camerer-abstract.png") 
+knitr::include_graphics(here("images", "camerer-abstract.png")) 
 ```
 ]
 
@@ -453,7 +476,7 @@ knitr::include_graphics("camerer-abstract.png")
 ]
 .right-column[
 ```{r,  echo=F, out.width = 650}
-knitr::include_graphics("nosek-fig.png") 
+knitr::include_graphics(here("images", "nosek-fig.png")) 
 ```
 ]
 
@@ -467,7 +490,9 @@ knitr::include_graphics("nosek-fig.png")
 "The relative effect size of true positives is estimated to be 71%, suggesting that both .red[false positives and inflated effect sizes] of true positives contribute to imperfect reproducibility."
 ]
 .pull-right[
-![](camerer-nature-fig-a.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "camerer-nature-fig-a.png"))
+```
 ]
 
 ---
@@ -495,7 +520,7 @@ knitr::include_graphics("nosek-fig.png")
 ### If we wanted to reproduce, often the materials aren't there
 .center[
 ```{r, echo=F, out.width=700}
-knitr::include_graphics("mol-brain.png")
+knitr::include_graphics(here("images", "mol-brain.png"))
 ```
 ]
 
@@ -514,7 +539,9 @@ Most authors only included estimation code.
 ]
 
 .pull-right[
-![](gertler-replication.jpg)
+```{r, echo=F}
+knitr::include_graphics(here("images", "gertler-replication.jpg"))
+```
 ]
 
 .footnote[ Gertler et al. 2018]
@@ -547,7 +574,9 @@ class: center, top, inverse
 ### After encouraging his postdoc to "find" specific results, fish for interactions, change the dependent variable, and eliminate outliers, he concluded:
 
 .center[
-![:scale 100%](wansink-careerism.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "wansink-careerism.png"))
+```
 ]
 
 ---
@@ -563,7 +592,9 @@ class: center, top, inverse
 
 ---
 ### A reproducible path forward: Reminaging the research lifecycle?
-![](research-lifecycle-solution.png)
+```{r, echo=F}
+knitr::include_graphics(here("images", "research-lifecycle-solution.png"))
+```
 
 .footnote[ Policy Design & Evaluation Lab (2017)]
 
