@@ -46,16 +46,16 @@ class: inverse
 --
 
 .pull-left[
-![:scale 70%](here("wansink-mindless.jpg"))
+![:scale 70%](../images/wansink-mindless.jpg)
 ]
 
 --
 .pull-right[
-![:scale 80%](wansink-gscholar.png)
+![:scale 80%](../images/wansink-gscholar.png))
 ]
 
 ---
-![](wansink-nestle.png)
+![](../images/wansink-nestle.png)
 
 .footnote[ https://www.foodpolitics.com/2007/11/brian-wansink-at-the-usda/]
 
@@ -83,7 +83,7 @@ Wansink denied requests for access to the original data.
 --
 
 .pull-right[
-![](wansink-vox.png)
+![](../images/wansink-vox.png)
 
 Wansink resigned from Cornell in 2019.
 ]
@@ -96,7 +96,7 @@ Tools have consequences
 .center[
 *SEPT2* gene
 ## `r emo::ji("point_down")`
-![:scale 30%](excel.png)
+![:scale 30%](../images/excel.png)
 # `r emo::ji("point_down")`
 2-Sep
 
@@ -104,20 +104,20 @@ Tools have consequences
 
 .right-column[
 .center[
-![:scale 90%](ziemann-abstract.png)
+![:scale 90%](../images/ziemann-abstract.png)
 ]]
 
 ---
 # More recently...
 .pull-left[
-![](excel-guardian.png)
-![:scale 65%](spreadsheets-box.png)
+![](../images/excel-guardian.png)
+![:scale 65%](../images/spreadsheets-box.png)
 ]
 
 .pull-right[
 Are Spreadsheets® right for you? Side effects may include:
 
-![](spreadsheets-side-effects.png)
+![](../images/spreadsheets-side-effects.png)
 ]
 
 .footnote[ Sources: The Guardian [(2020-10-06)](https://www.theguardian.com/politics/2020/oct/05/how-excel-may-have-caused-loss-of-16000-covid-tests-in-england), [YouTube](https://www.youtube.com/watch?v=aBoKwArgC3A)]
