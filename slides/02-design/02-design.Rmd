@@ -260,7 +260,7 @@ class: center, top, inverse
 .footnote[Zarin *NEJM* (2019)]
 .center[
 A majority of registerd RCTs still not reported.
-```{r, echo=F}
+```{r, echo=F, out.width="80%"}
 knitr::include_graphics(here("images", "zarin-nejm-2019-fig.png"))
 ```
 ]
