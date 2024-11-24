@@ -38,3 +38,5 @@ style_xaringan(text_color = "#000000", header_color = "#737373", text_font_size 
 ## 4. Dissemination Solutions ([lecture](slides/04-dissemination/04-dissemination.html))
 
 ## 5. Reproducible Example ([OSF repository for demo](https://osf.io/3fcxd/))
+
+Materials are here: https://github.com/sbh4th/reproducibility-workshop-2020/tree/main
